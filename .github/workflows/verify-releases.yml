@@ -1,0 +1,14 @@
+name: verify releases
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every release matches the receipt that authorized it
+        run: python3 tools/verify_releases.py
