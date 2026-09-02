@@ -21,17 +21,35 @@ def sha256(p: Path) -> str:
     return h.hexdigest()
 
 
-lectures = sorted(d for d in ROOT.glob("l[0-9][0-9]") if d.is_dir())
-if not lectures:
+lecture_names = {
+    path.name for path in ROOT.glob("l[0-9][0-9]")
+    if path.is_dir() or path.is_symlink()
+}
+canonical_releases = ROOT / "releases"
+if canonical_releases.is_dir():
+    lecture_names.update(
+        path.name for path in canonical_releases.glob("l[0-9][0-9]")
+        if path.is_dir()
+    )
+
+if not lecture_names:
     print("no lecture directories yet — nothing to verify")
     sys.exit(0)
 
 if not (ROOT / ".nojekyll").is_file():
     problems.append(".nojekyll is missing; the `current` symlink will not be served")
 
-for lec in lectures:
-    name = lec.name
-    releases, receipts = lec / "releases", lec / "receipts"
+for name in sorted(lecture_names):
+    lec = ROOT / name
+    canonical = (ROOT / "releases" / name).is_dir()
+    if canonical:
+        releases = ROOT / "releases" / name
+        receipts = ROOT / "receipts" / name
+        pointer = lec
+    else:
+        releases, receipts = lec / "releases", lec / "receipts"
+        pointer = lec / "current"
+
     if not releases.is_dir():
         problems.append(f"{name}: no releases/ directory")
         continue
@@ -64,20 +82,21 @@ for lec in lectures:
                     f"({actual[:12]} != {want[path]['sha256'][:12]})"
                 )
 
-    pointer = lec / "current"
     if not pointer.is_symlink():
-        problems.append(f"{name}/current is not a symlink; the stable student URL depends on it")
+        label = name if canonical else f"{name}/current"
+        problems.append(f"{label} is not a symlink; the stable student URL depends on it")
     else:
-        target = releases / Path(pointer.readlink()).name
-        if not target.is_dir():
-            problems.append(f"{name}/current points at {pointer.readlink()}, which does not exist")
+        target = (pointer.parent / pointer.readlink()).resolve()
+        if target.parent != releases.resolve() or not target.is_dir():
+            label = name if canonical else f"{name}/current"
+            problems.append(f"{label} points at {pointer.readlink()}, which is not a known release")
 
 ignored = subprocess.run(
     ["git", "status", "--ignored", "--porcelain"], cwd=ROOT, capture_output=True, text=True
 ).stdout.splitlines()
 for line in ignored:
     path = line[3:].strip()
-    if line.startswith("!!") and re.match(r"l\d\d/", path):
+    if line.startswith("!!") and re.match(r"(?:l\d\d|releases/l\d\d|receipts/l\d\d)/", path):
         problems.append(f"{path} is git-ignored inside a lecture directory — release bytes would be dropped silently")
 
 if problems:
@@ -86,5 +105,4 @@ if problems:
         print(f"  * {p}")
     sys.exit(1)
 
-total = sum(len(list((lec / 'releases').rglob('*'))) for lec in lectures)
-print(f"OK — {len(lectures)} lecture(s) verified against their receipts")
+print(f"OK — {len(lecture_names)} lecture(s) verified against their receipts")

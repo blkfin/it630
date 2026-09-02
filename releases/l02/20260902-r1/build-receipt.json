@@ -1,0 +1,55 @@
+{
+  "sourceCommit": "8db632fcae133cd26852cd0c3d9c1fa771791d18",
+  "sourceRef": "peer/it630-l2-preview-20260902",
+  "launchTagCommit": "d2b399ec698190c482d76a789e835d7540a84d37",
+  "semanticSource": {
+    "path": "lecture.resolved.json",
+    "sha256": "3d54cc58dd80632bba2c17157e7eff17d5cb6f5d0b32ad9c405f106a2b825e1f",
+    "schema": "lecture/v1"
+  },
+  "artifact": {
+    "path": "index.html",
+    "sha256": "eb1f0a3eaf85b22ccbbe3eed9dfd485dd88b95988870d2f572f2fd88ab717a15"
+  },
+  "counts": {
+    "expectedSections": 12,
+    "renderedSections": 12,
+    "reachableSectionsReading": null,
+    "reachableSectionsPresent": null,
+    "reachableHeadingsReading": null,
+    "reachableHeadingsPresent": null,
+    "mathml": 0,
+    "codeStates": 3,
+    "mermaidSvg": 0,
+    "chartTables": 0,
+    "diagramDescriptions": 0,
+    "imageAlts": 0,
+    "assetsCopied": 0,
+    "blocks": 20
+  },
+  "accessibility": {
+    "axeViolations": null,
+    "axTreeUsed": "CDP Accessibility.getFullAXTree",
+    "jsDisabledReachable": null
+  },
+  "manualChecksUnproved": [
+    "Title II / ADA program-access conformance (automation is evidence only)",
+    "Screen-reader walkthrough of both modes in VoiceOver and NVDA",
+    "Physical classroom projection judgment under room lighting",
+    "Zoom and reflow at 200% and 400% browser zoom",
+    "Keyboard-only teaching session across a full lecture",
+    "Syntax-theme and chart colors under projector wash",
+    "Color-contrast of syntax tokens inside highlighted code blocks"
+  ],
+  "deviations": [
+    "KaTeX visual HTML uses aria-hidden on .katex-html; exposed MathML retains the expression.",
+    "Same-screen animated code stepping was not added; successive complete code states are the MVP.",
+    "Chart SVG and data table are both generated from the block's held or bound data at build time.",
+    "Present mode has no panel scrolling: every section must fit 1920x1080; overflow fails the gate.",
+    "Present-mode floors: headings 40px/1.4, instructional 28px, chart/Mermaid text 24px, attribution 18px; code listings total at most 16 lines.",
+    "Review captures are viewport screenshots at 1920x1080, not element or full-page crops.",
+    "WCAG 2.1 A/AA-tagged axe scans plus mechanical SC checks are evidence only — not a Title II conformance claim.",
+    "Projection quality is also measured by the frozen selector-only instrument at projection-instrument.mjs.",
+    "Section source lineage is DERIVED from source_of_truth.canonical_file plus the section id; lecture/v1 carries no per-section lineage field."
+  ]
+}

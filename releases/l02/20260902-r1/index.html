@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT 630 L2 - The repository someone else has to rerun: reading and present modes</title>
+<link rel="stylesheet" href="./katex.min.css">
+<style>:root {  color-scheme: light;  --ink: #172033;  --muted: #3a4658;  --line: #d5dce8;  --paper: #ffffff;  --wash: #eef2f8;  --accent: #155eef;  --max: 74rem;}* { box-sizing: border-box; }html { font: 18px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--wash); }body { margin: 0; background: var(--wash); }a { color: #064fc4; text-underline-offset: 0.16em; }a:focus-visible, button:focus-visible, pre:focus-visible, [tabindex]:focus-visible { outline: 3px solid #f0a500; outline-offset: 3px; }.skip { position: absolute; left: 0.75rem; top: -5rem; background: #fff; padding: 0.6rem; z-index: 20; }.skip:focus { top: 0.75rem; }.chrome { display: flex; gap: 1rem; align-items: center; justify-content: flex-start; width: min(calc(100% - 2rem), var(--max)); margin: 1rem auto 0; }.mode-toggle, .copy-code { appearance: none; border: 1px solid #1d4f9c; background: #155eef; color: #fff; border-radius: 999px; padding: 0.45rem 1rem; font: inherit; font-weight: 650; cursor: pointer; }.copy-code { position: absolute; top: 0.6rem; right: 0.6rem; font-size: 0.85rem; padding: 0.3rem 0.75rem; }.position-status { margin: 0; color: var(--muted); font-weight: 650; }header, main, footer { width: min(calc(100% - 2rem), var(--max)); margin: auto; min-width: 0; }main > section, .split, .chart-panel, .code-states { min-width: 0; }header { padding: 2rem 0 0.5rem; }h1 { font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.05; margin: 0 0 0.75rem; }.lede { color: var(--muted); font-size: 1.1rem; }nav.toc { background: var(--paper); border: 1px solid var(--line); border-radius: 1rem; padding: 1rem 1.4rem; margin: 1.25rem 0 0; }.toc-label { font-weight: 750; margin: 0 0 0.6rem; }nav.toc ol { columns: 2; gap: 2rem; padding-left: 1.3rem; margin: 0; }section.lecture-section { background: var(--paper); border: 1px solid var(--line); border-radius: 1rem; padding: clamp(1.25rem, 3vw, 2.5rem); margin: 1.25rem 0; }h2 { font-size: clamp(1.65rem, 3vw, 2.35rem); line-height: 1.15; margin-top: 0; }h3 { font-size: 1.15rem; margin-top: 1.5rem; }p, li { max-width: 72ch; overflow-wrap: anywhere; }code { overflow-wrap: anywhere; }.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.25rem 0; }/* A card row is laid out in as many columns as it actually holds. The three-   column default was authored for the three-card sections and then applied to   every card row, so each two-card row stranded the right third of its panel   and forced its own text into a 1/3-width column it did not need. That is a   composition defect on its own -- it is the flat right edge visible on   ai_use_results, major_change_results and current_forecast_clock -- and it is   also what pushed two of those panels past the compact viewport, because a   narrower column costs lines and every line costs height.   Stated with :where() so the count rules keep .cards' own (0,1,0) specificity:   the narrow-viewport single-column fallback below must still win on source   order, and .composed-graphic.cards must still win on its own. */.cards:where(:not(:has(> :nth-child(2)))) { grid-template-columns: minmax(0, 1fr); }.cards:where(:has(> :nth-child(2)):not(:has(> :nth-child(3)))) { grid-template-columns: repeat(2, minmax(0, 1fr)); }.card { border: 1px solid var(--line); border-radius: 0.75rem; padding: 0.9rem 1rem; background: #f7f9fd; display: flow-root; }.composed-graphic { margin: 1.25rem 0; }.composed-graphic.cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }.composed-graphic .card { border-top: 0.35rem solid var(--accent); }.prediction-cards { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; counter-reset: prediction; }.prediction-cards .card { position: relative; padding-top: 3rem; counter-increment: prediction; }.prediction-cards .card::before { content: "?"; position: absolute; top: 0.65rem; left: 1rem; color: var(--accent); font-size: 1.8rem; line-height: 1; font-weight: 800; }.reveal-timeline table { table-layout: fixed; }.reveal-timeline th:first-child { width: 30%; }.reveal-timeline th:nth-child(2) { width: 18%; }.judgment-split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 1rem; align-items: stretch; }.judgment-split table { margin: 0; }.judgment-behaviors { display: grid; align-content: center; border: 1px solid var(--line); border-top: 0.35rem solid var(--accent); border-radius: 0.75rem; padding: 1rem 1.2rem; background: #eef4ff; }.evidence-figures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }/* The same count-aware rule .cards carries above, applied to the figure grid   it was never applied to. .cards was fixed because a fixed column count   stranded the unused columns of its last row -- the comment above names   ai_use_results as one of the panels that defect was visible on. The accepted   deck routed that panel's national measures through a drawn chart and used   .evidence-figures exactly once, with exactly two figures, so a hard-pinned   two-column figure grid never showed a ragged row and the fix was never   generalised to it. The semantic source expresses the same measures as three   typed fact claims, which the evidence widget lays out in this grid: at two   columns the third claim opens a second row whose right cell is empty, and   the panel overflowed by 130/109/116px at 1920x1080, 1600x900 and 1536x864.   Columns follow the figure count, capped at three, exactly as .cards does.   Both existing two-figure usages -- the accepted deck's and the compiled   deck's -- resolve to two columns as before, so this is a generalisation of   an accepted rule rather than a new layout decision. :where() keeps the   count rules at .evidence-figures' own (0,1,0) specificity so the   narrow-viewport single-column fallback below still wins on source order. */.evidence-figures:where(:not(:has(> :nth-child(2)))) { grid-template-columns: minmax(0, 1fr); }.evidence-figures:where(:has(> :nth-child(2)):not(:has(> :nth-child(3)))) { grid-template-columns: repeat(2, minmax(0, 1fr)); }.evidence-figure { display: grid; gap: 0.3rem; border: 1px solid var(--line); border-top: 0.35rem solid var(--accent); border-radius: 0.75rem; padding: 1rem 1.2rem; background: #f7f9fd; }.evidence-figure > strong { color: var(--accent); font-size: 2.5rem; line-height: 1; }.course-output { border-left: 0.35rem solid var(--accent); padding: 0.4rem 1rem; background: #eef4ff; }/* Sourced portraits lead their card at a fixed 3:4 crop. The pinned bytes must   ship unmodified to keep the manifest digest valid, so the declared crop is   applied by presentation -- cover to 3:4, anchored high so head and shoulders   land in the upper third -- rather than by re-encoding the file. Width is   bounded so a tall portrait cannot push its card's text off a 1080p panel.   The portrait is floated rather than stacked above the text. Stacked, a 3:4   portrait adds its whole height to the card on top of every text line; beside   the text, the portrait and the first lines share the same height, which is   both the conventional attributed-speaker composition and what keeps   current_forecast_clock inside a compact panel. The card is display:flow-root   so it contains the float without becoming a clipping ancestor. */.card .portrait, figure[data-image] .portrait { float: left; width: 168px; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; border-radius: 0.5rem; margin: 0.15rem 0.9rem 0.5rem 0; shape-margin: 0.9rem; }.legend { display: flex; gap: 1.5rem; margin: 0.75rem 0 0; }.legend-item { display: flex; align-items: center; gap: 0.5rem; }.swatch { width: 0.85rem; height: 0.85rem; border-radius: 0.2rem; display: inline-block; }.swatch-room { background: #2a78d6; }.swatch-national { background: #eb6834; }.attribution { color: var(--muted); font-size: 0.95rem; }.chart-wrap { max-width: 52rem; color: #0b0b0b; }.chart-wrap svg { height: auto; }.data-alternative, .diagram-alternative { border-left: 0.35rem solid var(--accent); background: #eef4ff; padding: 0.25rem 1rem 1rem; margin: 1.25rem 0; }.external-results-overlay { min-height: 18rem; display: grid; align-content: center; }/* Scoped to the opt-in ONLY: a poll whose options carry authored labels must not   also receive generated markers. Polls without the flag keep their numbering. */[data-choice-labels="authored"] ol { list-style: none; padding-left: 0; }.external-overlay-composition .external-results-overlay { height: 100%; margin: 0; }/* Widget catalog additions (S4 integration). A caveat is required-to-render   instructional meaning, so it must NOT land in the 18px quiet tier the   .attribution class carries; it reads at the instructional floor. */.caveat, [data-caveat] { margin: 0.75rem 0 0; padding: 0.5rem 0.9rem; border-left: 0.3rem solid var(--accent); background: #fff8e6; font-size: inherit; }figure[data-image] { margin: 1.25rem 0; }figure[data-image] img { max-width: 100%; height: auto; display: block; }figure[data-image] figcaption { margin-top: 0.5rem; }/* An image block outside a .card was unbounded: the pinned portraits are   1531x2043 and 1400x2240, so at container width two of them added roughly   three panel heights and pushed every rect on current_forecast_clock outside   the panel.   Bounding the figure to a 168px inline-block column fixed the image and broke   the caption: the generated figcaption is a full sentence, and a full sentence   in a 168px column is ~20 lines, so each figure measured 970px and 913px tall   and current_forecast_clock still escaped its panel by 742px at 1920x1080 and   961px at 1900x850. That column is a SECOND portrait treatment. The accepted   layer above already states the contract and names this very panel: the   portrait FLOATS and the text runs beside it, because stacked, a 3:4 portrait   adds its whole height on top of every text line. display:contents removes   the migration's column box so the img floats in the section's own flow under   the accepted rule and the caption wraps at panel width, exactly as a card   portrait does. */figure[data-image]:has(.portrait) { display: contents; }figure[data-image]:has(.portrait) figcaption { font-size: 0.85em; margin: 0 0 0.75rem; }dl { margin: 1rem 0; }dt { font-weight: 700; margin-top: 0.75rem; }dd { margin: 0.25rem 0 0 1.25rem; }/* The chart data table carries one long category label per row and one short   value per series. Auto table layout split the width evenly, so every category   label wrapped to two lines while the value column sat mostly empty -- 225px of   table body where 111px of content lives. Sizing the value columns to their   content gives the category column the remainder and un-wraps the rows. This   is the table getting the width it needs, not less of anything. */.data-alternative th:not(:first-child),.data-alternative td:not(:first-child) { width: 1%; white-space: nowrap; }/* Margins against the alternative panel's own padding edge are dead space, not   spacing between content: the heading's top margin and the table's bottom   margin each stack on top of the panel's padding. */.data-alternative > :first-child { margin-top: 0; }.data-alternative > :last-child { margin-bottom: 0; }.diagram svg { max-width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 0.75rem; padding: 1rem; overflow: hidden; }.diagram foreignObject { overflow: visible; }.diagram .nodeLabel,.diagram .edgeLabel,.diagram .label,.diagram .nodeLabel p,.diagram .edgeLabel p {  margin: 0;  font-size: 24px;  line-height: 1.2;}.math-block, .chart-panel, .chart-wrap, .data-alternative, .diagram, pre {  max-width: 100%;}.math-block, .data-alternative, .chart-wrap, .diagram { overflow-x: auto; }.math-block { overflow: auto; padding: 0.5rem 0; }pre { overflow: auto; background: #101828; color: #f7f8fa; border-radius: 0.65rem; padding: 1rem 1rem 1rem; font-size: 0.95rem; }pre code { overflow-wrap: normal; }code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }.code-block { position: relative; }.code-states { display: grid; gap: 1.25rem; }table { border-collapse: collapse; width: 100%; margin: 1rem 0; }caption { text-align: left; font-weight: 650; margin-bottom: 0.5rem; }th, td { border: 1px solid #aeb8ca; padding: 0.55rem; text-align: left; }thead { background: #eaf0fa; }.split { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 2rem; align-items: start; }.split img { max-width: 100%; height: auto; border-radius: 0.75rem; }img { max-width: 100%; height: auto; }footer { padding: 1rem 0 3rem; color: var(--muted); }.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }.hljs { color: #e8edf5; }.hljs-keyword, .hljs-built_in { color: #93c5fd; }.hljs-string { color: #f9c78a; }.hljs-number { color: #f0abfc; }.hljs-comment { color: #94a3b8; }.hljs-title { color: #a5b4fc; }@media (max-width: 48rem) {  nav.toc ol, .cards, .split, .judgment-split, .evidence-figures { grid-template-columns: 1fr; columns: 1; }  .prediction-cards { grid-template-columns: 1fr !important; }}@media (prefers-reduced-motion: reduce) {  * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }}html.mode-present, body.mode-present {  background: #0f1728;  font-size: 28px;  line-height: 1.25;  height: 100%;  overflow: hidden;}/* The chrome -- mode badge plus slide counter -- is a fixed overlay at z-index   40, so wherever it sits it paints ON TOP of the panel rather than beside it.   Pinned to the top-right corner it landed on the headline: measured at   07e68afb, 10 of 18 headlines at 1920x1080 and 11 of 18 at 1536x864 had glyphs   running underneath it, up to 191x28px of headline occluded. Nothing in the   suite measured that -- the fit instrument reads overflow and clipping relative   to the section box and its overflow:hidden ancestors, and a fixed sibling   outside the section is neither -- so it took a contract check 13 human read of   the render to see it.   The counter moves to the bottom-right, which is where presentation software   conventionally puts it and which is the one region of these panels that is   reliably unpainted: every section is top-weighted, and the headline is the   element that reaches a top corner. Reserving the top corner instead, with a   floated spacer, was measured first and rejected: it cost the headline of   current_forecast_clock a second line and put that panel 2px over the compact   budget, so the cheaper-looking fix bought the collision back as an overflow.   DOM order is unchanged, so tab order is unchanged. */body.mode-present .chrome {  position: fixed;  z-index: 40;  bottom: 12px;  right: 12px;  width: auto;  margin: 0;  gap: 8px;  padding: 4px 6px;  border-radius: 999px;  background: rgba(15, 23, 40, 0.82);  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);  color: #d7deea;}body.mode-present .mode-toggle {  font-size: 16px;  line-height: 1.2;  padding: 6px 10px;}body.mode-present .position-status {  color: #e8eef8;  font-size: 16px;  line-height: 1.2;  padding-right: 6px;}body.mode-present header,body.mode-present footer {  position: absolute;  width: 1px;  height: 1px;  padding: 0;  margin: -1px;  overflow: hidden;  clip: rect(0, 0, 0, 0);  white-space: nowrap;  border: 0;}body.mode-present main {  position: relative;  width: 100%;  max-width: none;  height: 100vh;  height: 100dvh;  overflow: hidden;}body.mode-present section.lecture-section {  position: absolute;  top: 12px;  left: 50%;  width: min(calc(100% - 1rem), 92rem);  height: calc(100vh - 24px);  height: calc(100dvh - 24px);  margin: 0;  overflow: hidden;  padding: 1.15rem 2rem 1rem;  background: #fffaf2;  border: 0;  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);  transform: translateX(110vw);  pointer-events: none;}body.mode-present section.lecture-section[aria-current="true"] {  transform: translateX(-50%);  pointer-events: auto;}/* Applied present-mode type sizes, derived from the panel's authored intent.   render-reader.mjs emits --authored-scale per panel; nothing consumes it   directly. Sizes resolve here as LENGTHS rather than as a unitless   --prose-scale multiplier, so the compact rule below can express "shrink in   proportion to the panel that actually exists" using only length x number   arithmetic. Deriving a unitless ratio would need length / length inside   calc(), a capability this stylesheet would be assuming rather than verifying.   At the 1920x1080 reference these resolve to exactly the previous   calc(28px * scale) and calc(40px * scale), so the accepted rendering is   unchanged by construction. */body.mode-present section.lecture-section {  --prose-px: calc(28px * var(--authored-scale, 1));  --heading-px: calc(40px * var(--authored-scale, 1));}/* Present-mode block separation. projection-quality-rubric.md D5 requires a   >= 16px gap between adjacent sibling blocks at the projector viewport.   rem resolves against a 28px root in present mode, so the previous   0.25-0.45rem margins computed to 7-12.6px, and because adjacent vertical   margins COLLAPSE to the larger of the pair, every one of them had to clear   the floor on its own. Stated in px, matching the present-mode type scale,   which is already px and so cannot drift with the root size. */body.mode-present h2 { font-size: var(--heading-px, 40px); line-height: 1.4; margin-bottom: 17px; }body.mode-present h3 { font-size: var(--prose-px, 28px); line-height: 1.4; margin-top: 17px; margin-bottom: 17px; }body.mode-present p,body.mode-present li,body.mode-present td,body.mode-present th,body.mode-present pre,body.mode-present code,body.mode-present .card,body.mode-present .chart-conclusion,body.mode-present .code-change,body.mode-present .legend,body.mode-present caption,body.mode-present figcaption {  font-size: 28px;  line-height: 1.25;}/* projection-quality-rubric.md D2 requires a present-mode panel to paint   between 0.25 and 0.85 of the 1920x1080 area; "below is a wasted panel". Every   present-mode size above was authored at 28px, which is T1's FLOOR -- the   minimum legible body size -- rather than a design size, so the text-only   panels painted as little as 0.095 of their panel. Prose is set here at a   display scale appropriate to a 1080p projector.   Scaling prose is line-neutral, which is what makes it safe: the measure is   stated in ch units, so the column width scales WITH the type. Rendered lines   paragraph and characters per line are therefore unchanged, and D3 and T6   cannot move. Painted prose area scales as k^2.   Solving the D2 band against the measured prose/non-prose area split of all   seven real panels leaves one feasible uniform scale, k in [1.622, 1.922]:   section 1 sets the lower bound and section 2 the upper. 1.75 is near the   middle of that interval, which is why it is this value -- the band is what   forces it, not a search for a passing number.   Deliberately NOT scaled: pre/code (fixed layout, overflow:hidden, and K6   governs their floor), td/th (table geometry), and the quiet tier, whose own   18px rule below wins on specificity and must stay quiet for T2. */body.mode-present p,body.mode-present li,body.mode-present .card,body.mode-present .chart-conclusion,body.mode-present .code-change,body.mode-present .legend {  font-size: var(--prose-px, 28px);}body.mode-present p { margin: 17px 0; }/* Present-mode prose measure. projection-quality-rubric.md T6 caps the widest   body line box at 90 characters. The shared "p, li { max-width: 72ch }" rule   states a 72-CHARACTER intent, but ch is the advance width of "0", which is   wider than this face's average lowercase glyph, so at the 28px present-mode   scale 72ch measures 1282.64px and paints up to 93 characters -- over T6 and   well over the rule's own authored intent. Narrowing the present-mode measure   restores both. Scoped to present mode so reading-mode responsiveness is   untouched. */body.mode-present p,body.mode-present li { max-width: 66ch; }/* Projector bullet rhythm is a renderer decision, not a per-slide authoring   tweak. Separate sibling items enough to scan as distinct claims while   leaving the first item aligned with the list's normal top edge. Definition   lists keep their own term/definition grouping rather than inheriting this   rhythm. */body.mode-present [data-prose-role="bullet_list"] li + li {  margin-top: 0.24em;}/* T6 measures non-quiet body runs only; the rubric puts caption, footer,   attribution and source text in its own quiet tier. Capping the measure of   quiet text buys nothing for T6 and costs panel height: the section-6 figure   alternative gained a line and overflowed its panel by 29px, which the   renderer's own P-panel-overflow check caught. These selectors restore the   shared 72ch exactly, so this change moves only the prose T6 governs. */body.mode-present figcaption p,body.mode-present figcaption li,body.mode-present caption p,body.mode-present footer p,body.mode-present [data-quiet] p,body.mode-present [data-quiet] li,body.mode-present [data-attribution] p,body.mode-present [data-source] p { max-width: 72ch; }body.mode-present pre, body.mode-present code { font-size: 28px; }body.mode-present pre {  overflow: hidden;  white-space: pre;  padding: 0.45rem 0.6rem;  margin: 17px 0 0;}body.mode-present .copy-code { font-size: 18px; padding: 0.2rem 0.55rem; }body.mode-present .code-states {  grid-template-columns: repeat(3, minmax(0, 1fr));  gap: 0.75rem;  align-items: start;}body.mode-present .code-state { min-width: 0; }body.mode-present .chart-panel {  display: grid;  grid-template-columns: 1.15fr 0.85fr;  gap: 1rem;  align-items: start;  margin-top: 17px;}body.mode-present .chart-wrap { max-width: none; }body.mode-present .chart-wrap svg { width: 100%; height: auto; overflow: visible; }body.mode-present .chart-wrap text {  /* SVG font sizes are expressed in viewBox units, so a 24-unit label used to     shrink below 24 rendered pixels whenever its responsive column narrowed.     The runtime supplies the inverse scale only when the SVG is narrower than     its coordinate system; labels keep their authored size at larger widths. */  font-size: calc(24px * var(--chart-label-scale, 1));  line-height: 1.2;}body.mode-present .diagram text,body.mode-present .diagram tspan,body.mode-present .diagram .nodeLabel,body.mode-present .diagram .edgeLabel,body.mode-present .diagram .label {  font-size: 24px;  line-height: 1.2;}body.mode-present .data-alternative,body.mode-present .diagram-alternative {  margin: 17px 0 0;  padding: 0.15rem 0.8rem 0.45rem;}body.mode-present .external-results-overlay { min-height: min(44vh, 28rem); }body.mode-present table { margin: 17px 0; }body.mode-present th, body.mode-present td { padding: 0.28rem 0.45rem; }body.mode-present .diagram { margin: 17px 0 0; max-width: 100%; overflow: visible; }body.mode-present .diagram svg { display: block; width: auto; height: auto; max-width: 100%; padding: 0.2rem; overflow: visible; }/* A drawn diagram and its derived relationship list carry the same content.   Keep the list in the accessibility tree, but do not print the duplicate   prose under the picture in present mode. Reading mode still renders it. */body.mode-present .diagram-alternative {  position: absolute;  width: 1px;  height: 1px;  padding: 0;  margin: -1px;  overflow: hidden;  clip: rect(0, 0, 0, 0);  white-space: nowrap;  border: 0;}body.mode-present .split img { max-height: 620px; width: auto; object-fit: contain; }body.mode-present .cards { margin: 0.6rem 0 0; gap: 0.75rem; }body.mode-present .card { padding: 0.65rem 0.8rem; }/* The tightened present-mode card padding above is a SHORTHAND, so it resets   padding-top and wipes the band .prediction-cards reserves for its absolutely   positioned "?" marker. In present mode the marker then paints on top of the   first glyph of every prediction card -- a real collision that reading mode   never shows. Restore a reserved band that clears the marker box: the marker   starts at 0.65rem and is 1.8rem tall with line-height 1, so anything below   2.45rem collides. Keep this rule AFTER the shorthand and specific enough   (0,3,1) to survive it. */body.mode-present .prediction-cards .card { padding-top: 2.75rem; }body.mode-present .composed-graphic { margin: 17px 0; }body.mode-present .annotation-panels .card { min-height: 500px; }body.mode-present .judgment-split,body.mode-present .evidence-figures { gap: 0.75rem; }body.mode-present .judgment-behaviors { padding: 0.65rem 0.8rem; }body.mode-present .evidence-figure { padding: 0.65rem 0.8rem; }body.mode-present .evidence-figure > strong { font-size: 72px; }body.mode-present .card .portrait { width: 150px; margin-bottom: 0.5rem; }body.mode-present .split { gap: 1.25rem; }body.mode-present .attribution,body.mode-present footer,body.mode-present footer p {  font-size: 18px;}body.mode-present .math-block { padding: 0.2rem 0; overflow: hidden; }/* Compact projector/laptop view. The original fit contract covered only   1920x1080, but ordinary 1536x864 browser viewports lost 110-210px from   sections 2, 3 and 6. Keep the 28px/40px type floors, reclaim chrome space,   and reflow the two structures whose aspect ratios caused the remaining   height pressure. The diagram explanation remains visible in reading mode   and exposed in the accessibility tree. In compact present mode, the drawn   diagram already conveys it visually, so its prose companion uses the same   screen-reader-only treatment as other nonvisual semantic companions. */@media (max-width: 1600px), (max-height: 900px) {  body.mode-present section.lecture-section {    /* PROPORTIONAL COMPACT SCALING, replacing the --prose-scale: 1 !important       reset. That reset discarded every panel's authored intent and pinned all       18 sections to the 28px floor at any viewport below 1600x900 -- measured,       not inferred: at 1900x850 section 2 rendered 28px prose against 64.68px at       the reference, filling 0.398 of its panel against 0.875.       The panel is calc(100dvh - 24px) tall with 28px/21px compact padding, so       its content box is 100dvh - 73px against the 996px the reference panel       has. Type is reduced in that same proportion, which keeps a panel's       composition close to the accepted one instead of collapsing it, and is       clamped so it can never render BELOW the 28px/40px floors T1 sets as       minimum legible size. 0.0281124 is 28/996 and 0.0401606 is 40/996: the       reference sizes restated per pixel of reference content height, so at       996px they would reproduce the accepted sizes exactly.       The 0.95 factor is render-reader.mjs's SAFETY constant, applied here for       the same stated reason: "margin against the height model running       optimistic". The authored scale already carries SAFETY against ITS height       model, but "prose height falls in proportion to panel height" is a SECOND       model, and it runs optimistic wherever a panel holds fixed-height       graphics that do not shrink with type. That was measured, not predicted:       without this factor section 18 (opportunity_evidence, a chart panel)       escaped its panel by 3px at 1536x864 while every other section cleared.       So the coefficients are 28 * 0.95 / 996 and 40 * 0.95 / 996. */    --prose-px: max(28px, min(      calc(28px * var(--authored-scale, 1)),      calc((100dvh - 73px) * var(--authored-scale, 1) * 0.02670683)));    --heading-px: max(40px, min(      calc(40px * var(--authored-scale, 1)),      calc((100dvh - 73px) * var(--authored-scale, 1) * 0.03815261)));    padding: 1rem 1.5rem 0.75rem;  }  body.mode-present section.lecture-section > :last-child { margin-bottom: 0; }  body.mode-present #section-2 .cards {    grid-template-columns: 0.65fr 1fr 1.65fr;    gap: 0.5rem;  }  body.mode-present #section-2 .card { padding: 0.45rem 0.6rem; }  /* Give the compact chart enough width for its counter-scaled 24px tick     labels. The authored wide-layout ratio clears neighboring ticks; removing     the nested present-mode top margins recovers the small amount of height     lost when its narrower table cells wrap. Neither rule affects the wide     reference. */  body.mode-present .chart-panel { grid-template-columns: 1.15fr 0.85fr; }  body.mode-present .chart-panel,  body.mode-present .chart-panel .data-alternative { margin-top: 0; }  body.mode-present .chart-panel .data-alternative { padding-block: 0; }  /* At the 28px compact type floor, a held chart's derived table is fixed     height: the proportional type model cannot shrink it as the viewport loses     height. Keep the table fully visible, but tighten only its cell inset from     0.28rem (7.84px) to 0.2rem (5.6px). Across four rows this recovers 17.9px,     preserving the 16px BETWEEN-BLOCK rhythm above while keeping every table     line and accessible value. This is a chart-table contract, not a panel-id     or viewport exception; test-compact-chart-layout.mjs measures the real     widget and document shell at the compact consumption boundary. */  body.mode-present .chart-panel .data-alternative th,  body.mode-present .chart-panel .data-alternative td { padding-block: 0.2rem; }}</style>
+</head>
+<body class="mode-reading">
+<a class="skip" href="#content">Skip to lecture content</a>
+<div class="chrome" role="region" aria-label="Presentation controls">
+  <button type="button" class="mode-toggle" id="mode-toggle" aria-pressed="false">Present mode</button>
+  <p class="position-status" id="position-status" hidden>1 / 12</p>
+</div>
+<div id="section-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true">Reading mode</div>
+<div id="copy-status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+<header>
+  <h1>IT 630 L2 - The repository someone else has to rerun</h1>
+  <p class="lede">One static lecture with two views over the same document. Reading mode is the default continuous study document. Present mode changes layout, type, and navigation only.</p>
+  <nav class="toc" aria-labelledby="toc-label">
+    <p class="toc-label" id="toc-label">Contents</p>
+    <ol><li><a href="#cover">IT 630: Data Science and Scalable Data Systems</a></li><li><a href="#the_folder">Can you produce the same number from this folder?</a></li><li><a href="#reproducible_defined">Reproducible has a definition, and it excludes things.</a></li><li><a href="#four_quadrants">Two questions, not four labels: same data? same analysis?</a></li><li><a href="#four_inputs">Clearing the weakest bar takes four specific things.</a></li><li><a href="#folder_fails">The folder fails all four, and not because anyone was careless.</a></li><li><a href="#provenance_defined">Different question: where did this one number come from?</a></li><li><a href="#what_carries_provenance">Documentation is what carries the trace.</a></li><li><a href="#repository_structure">A repository gives a project one legible entry point.</a></li><li><a href="#what_never_enters">Some things must never enter the repository at all.</a></li><li><a href="#the_repair">The same project, organised.</a></li><li><a href="#four_questions">Four questions to ask of any project you are handed.</a></li></ol>
+  </nav>
+</header>
+<main id="content" tabindex="0"><section class="lecture-section" id="cover" data-source-lineage="it630_l02#sections.cover" data-citations="" aria-labelledby="cover-title" tabindex="0" style="--authored-scale: 2.02"><h2 id="cover-title">IT 630: Data Science and Scalable Data Systems</h2>
+<h3 data-prose-role="subhead">Unit 1, Meeting 2. The repository someone else has to rerun.</h3>
+<p class="course-output" data-prose-role="course_connection">Four questions that tell you whether a project someone hands you can be trusted, and whether the one you hand over can be picked up by anyone else.</p></section>
+<section class="lecture-section" id="the_folder" data-source-lineage="it630_l02#sections.the_folder" data-citations="course_inventory_u1 turing_way_metadata" aria-labelledby="the_folder-title" tabindex="0" style="--authored-scale: 1.58"><h2 id="the_folder-title">Can you produce the same number from this folder?</h2>
+<div class="code-states"><article class="code-state">
+<h3>Code state 1</h3>
+<p class="code-change">Illustrative example: a made-up project folder, as received</p>
+<div class="code-block">
+<button type="button" class="copy-code" data-code-b64="cG9wLXRhcnQtcmVzdG9jay8KICAgIGFuYWx5c2lzX0ZJTkFMX3YzICgyKS5pcHluYgogICAgYW5hbHlzaXNfRklOQUxfdjMgKDIpIC0gQ29weS5pcHluYgogICAgZGF0YS5jc3YKICAgIGRhdGFfbmV3LmNzdgogICAgY2hhcnQucG5nCiAgICBjcmVkcy50eHQK" data-name="Copy code state 1" aria-label="Copy code state 1">Copy</button>
+<pre tabindex="0"><code class="hljs language-text">pop-tart-restock/
+    analysis_FINAL_v3 (2).ipynb
+    analysis_FINAL_v3 (2) - Copy.ipynb
+    data.csv
+    data_new.csv
+    chart.png
+    creds.txt
+</code></pre>
+</div>
+</article></div>
+<ul data-prose-role="bullet_list"><li>The person who made it has left. The number they reported is in chart.png.</li><li>Running on the author's own machine is not the test. The test is whether someone else gets there, and that someone is often you, months later.</li></ul></section>
+<section class="lecture-section" id="reproducible_defined" data-source-lineage="it630_l02#sections.reproducible_defined" data-citations="turing_way_definitions" aria-labelledby="reproducible_defined-title" tabindex="0" style="--authored-scale: 2.24"><h2 id="reproducible_defined-title">Reproducible has a definition, and it excludes things.</h2>
+<dl data-prose-role="definition_list"><dt>reproducible</dt><dd>The same analysis steps performed on the same dataset consistently produce the same answer.</dd><dt>reproducible research</dt><dd>Work that can be independently recreated from the same data and the same code the original team used.</dd></dl></section>
+<section class="lecture-section" id="four_quadrants" data-source-lineage="it630_l02#sections.four_quadrants" data-citations="turing_way_definitions course_week1_review" aria-labelledby="four_quadrants-title" tabindex="0" style="--authored-scale: 1.39"><h2 id="four_quadrants-title">Two questions, not four labels: same data? same analysis?</h2>
+<table><thead><tr><th scope="col">Analysis</th><th scope="col">Same data</th><th scope="col">Different data</th></tr></thead><tbody><tr><th scope="row">Same analysis</th><td>Reproducible</td><td>Replicable</td></tr><tr><th scope="row">Different analysis</th><td>Robust</td><td>Generalisable</td></tr></tbody></table>
+<dl data-prose-role="definition_list"><dt>replicable</dt><dd>The same analysis on different datasets produces qualitatively similar answers.</dd><dt>robust</dt><dd>The same dataset put through different analysis workflows, for example one pipeline in R and another in Python, produces a qualitatively similar or identical answer. The result does not depend on the language chosen.</dd><dt>generalisable</dt><dd>Replicable and robust findings combined. Changing the software and the dataset at once does not by itself produce a generalised result; many further steps are needed.</dd></dl>
+<ul data-prose-role="bullet_list"><li>Reproducible is the weakest of the four: same data, same analysis.</li><li>It is the one this course holds work to.</li></ul></section>
+<section class="lecture-section" id="four_inputs" data-source-lineage="it630_l02#sections.four_inputs" data-citations="course_inventory_u1 turing_way_definitions turing_way_metadata" aria-labelledby="four_inputs-title" tabindex="0" style="--authored-scale: 1.87"><h2 id="four_inputs-title">Clearing the weakest bar takes four specific things.</h2>
+<ul data-prose-role="bullet_list"><li>The code that produced the result.</li><li>The data, or instructions for retrieving that version of it.</li><li>The environment and dependencies the code needs to run.</li><li>The parameters it was run with.</li></ul>
+<dl data-prose-role="definition_list"><dt>parameter</dt><dd>A value the analysis was run with, recorded alongside the data as part of its documentation: parameters, variables, column headings, and symbols used.</dd></dl></section>
+<section class="lecture-section" id="folder_fails" data-source-lineage="it630_l02#sections.folder_fails" data-citations="course_inventory_u1 turing_way_metadata" aria-labelledby="folder_fails-title" tabindex="0" style="--authored-scale: 1.7"><h2 id="folder_fails-title">The folder fails all four, and not because anyone was careless.</h2>
+<table><caption>Four requirements, each checked against the illustrative folder.</caption><thead><tr><th scope="col">Requirement</th><th scope="col">What the folder shows</th></tr></thead><tbody><tr><th scope="row">Code</th><td>Two notebooks differing only by a copy suffix. Nothing says which produced the number.</td></tr><tr><th scope="row">Data, and which version</th><td>data.csv and data_new.csv. The difference is recorded nowhere.</td></tr><tr><th scope="row">Environment</th><td>Nothing names the software the notebook needs.</td></tr><tr><th scope="row">Parameters</th><td>No documentation carries the values it was run with.</td></tr></tbody></table><p class="attribution" data-attribution>Course illustrative example</p></section>
+<section class="lecture-section" id="provenance_defined" data-source-lineage="it630_l02#sections.provenance_defined" data-citations="course_inventory_u1 turing_way_metadata" aria-labelledby="provenance_defined-title" tabindex="0" style="--authored-scale: 1.7"><h2 id="provenance_defined-title">Different question: where did this one number come from?</h2>
+<dl data-prose-role="definition_list"><dt>provenance</dt><dd>A reported value can be traced to the specific inputs, transformations, and versions that produced it.</dd></dl>
+<ul data-prose-role="bullet_list"><li>Reproducibility asks whether the whole thing runs again. Provenance asks where one number came from.</li><li>Trace it: which CSV, then which notebook, then run with what. The chain stops at the first fork.</li><li>Having the four requirements makes the trace possible. Documentation linking this value to them is what makes it hold.</li></ul></section>
+<section class="lecture-section" id="what_carries_provenance" data-source-lineage="it630_l02#sections.what_carries_provenance" data-citations="turing_way_metadata" aria-labelledby="what_carries_provenance-title" tabindex="0" style="--authored-scale: 1.34"><h2 id="what_carries_provenance-title">Documentation is what carries the trace.</h2>
+<dl data-prose-role="definition_list"><dt>documentation</dt><dd>Information that lets collaborators, colleagues, and future you understand what has been done and why, written in clear plain language.</dd><dt>README</dt><dd>A file describing data or software so it can be correctly interpreted and used by yourself or others. It can serve as the landing page of a project repository.</dd><dt>data dictionary</dt><dd>A listing of every variable and label in a dataset with value ranges, units of measurement, and sources. The test is whether another person could interpret the data from it alone.</dd></dl>
+<ul data-prose-role="bullet_list"><li>Without metadata to provide provenance and context, data cannot be used effectively.</li><li>A table of numbers is useless if no headings describe what the rows and columns contain.</li><li>Documentation is what lets a user judge the source, strengths, weaknesses, and limits of data, and so decide whether to use it.</li></ul></section>
+<section class="lecture-section" id="repository_structure" data-source-lineage="it630_l02#sections.repository_structure" data-citations="course_inventory_u1 turing_way_storage turing_way_metadata course_week1_review" aria-labelledby="repository_structure-title" tabindex="0" style="--authored-scale: 1.56"><h2 id="repository_structure-title">A repository gives a project one legible entry point.</h2>
+<dl data-prose-role="definition_list"><dt>project repository</dt><dd>A project's own storage and organisation: a legible entry point, with code, documentation, inputs, and outputs separated rather than pooled.</dd></dl>
+<ul data-prose-role="bullet_list"><li>Use a clear folder structure, with enough subfolders that files are not scattered or piled into one place.</li><li>Do not invent one. Use an existing project template.</li><li>A README can be the landing page, describing what the project is and how the work was done.</li><li>File names should be friendly to machines and humans: version numbers rather than FINAL, no special characters or spaces, not too long.</li></ul></section>
+<section class="lecture-section" id="what_never_enters" data-source-lineage="it630_l02#sections.what_never_enters" data-citations="course_inventory_u1 turing_way_storage turing_way_definitions" aria-labelledby="what_never_enters-title" tabindex="0" style="--authored-scale: 1.71"><h2 id="what_never_enters-title">Some things must never enter the repository at all.</h2>
+<ul data-prose-role="bullet_list"><li>Personal and sensitive data is bound by data-protection rules that constrain where it may be stored at all, and it should not appear even in folder or file names.</li><li>Work can be reproducible without being open: some research uses sensitive data that cannot be shared, so reproducibility does not require putting the data in the folder.</li><li>A repository is not a dumping ground for secrets. creds.txt should never have been there.</li></ul></section>
+<section class="lecture-section" id="the_repair" data-source-lineage="it630_l02#sections.the_repair" data-citations="course_inventory_u1 turing_way_storage turing_way_metadata" aria-labelledby="the_repair-title" tabindex="0" style="--authored-scale: 2.07"><h2 id="the_repair-title">The same project, organised.</h2>
+<div class="code-states"><article class="code-state">
+<h3>Code state 1</h3>
+<p class="code-change">Illustrative example: the folder as received</p>
+<div class="code-block">
+<button type="button" class="copy-code" data-code-b64="cG9wLXRhcnQtcmVzdG9jay8KICAgIGFuYWx5c2lzX0ZJTkFMX3YzICgyKS5pcHluYgogICAgYW5hbHlzaXNfRklOQUxfdjMgKDIpIC0gQ29weS5pcHluYgogICAgZGF0YS5jc3YKICAgIGRhdGFfbmV3LmNzdgogICAgY2hhcnQucG5nCiAgICBjcmVkcy50eHQK" data-name="Copy code state 1" aria-label="Copy code state 1">Copy</button>
+<pre tabindex="0"><code class="hljs language-text">pop-tart-restock/
+    analysis_FINAL_v3 (2).ipynb
+    analysis_FINAL_v3 (2) - Copy.ipynb
+    data.csv
+    data_new.csv
+    chart.png
+    creds.txt
+</code></pre>
+</div>
+</article>
+<article class="code-state">
+<h3>Code state 2</h3>
+<p class="code-change">The same project, organised</p>
+<div class="code-block">
+<button type="button" class="copy-code" data-code-b64="cG9wLXRhcnQtcmVzdG9jay8KICAgIFJFQURNRS5tZCAgICAgIDwtIHdoYXQgdGhpcyBpcywgaG93IHRvIHJlcnVuIGl0CiAgICBkYXRhLyAgICAgICAgICA8LSBpbnB1dHMKICAgIGNvZGUvCiAgICByZXN1bHRzLyAgICAgICA8LSBvdXRwdXRzLCBrZXB0IGFwYXJ0IGZyb20gaW5wdXRzCiAgICBlbnZpcm9ubWVudCAvIGRlcGVuZGVuY3kgbGlzdAogICAgKGNyZWRlbnRpYWxzIGFyZSBub3QgaW4gdGhpcyBwaWN0dXJlKQo=" data-name="Copy code state 2" aria-label="Copy code state 2">Copy</button>
+<pre tabindex="0"><code class="hljs language-text">pop-tart-restock/
+    README.md      &lt;- what this is, how to rerun it
+    data/          &lt;- inputs
+    code/
+    results/       &lt;- outputs, kept apart from inputs
+    environment / dependency list
+    (credentials are not in this picture)
+</code></pre>
+</div>
+</article></div></section>
+<section class="lecture-section" id="four_questions" data-source-lineage="it630_l02#sections.four_questions" data-citations="turing_way_definitions course_inventory_u1 turing_way_storage turing_way_metadata" aria-labelledby="four_questions-title" tabindex="0" style="--authored-scale: 1.77"><h2 id="four_questions-title">Four questions to ask of any project you are handed.</h2>
+<ul data-prose-role="bullet_list"><li>Is it reproducible: same analysis, same data, same answer, as distinct from replicable, robust, or generalisable?</li><li>Can it be rerun: code, data and which version, environment, parameters?</li><li>Can one reported value be traced to its inputs, transformations, and versions?</li><li>Does it have a legible entry point, separated inputs and outputs, and nothing in it that should never have been there?</li></ul></section></main>
+<footer>
+  <p>Generated from the semantic source. Presentation chrome does not remove lecture content from the document or the accessibility tree.</p>
+</footer>
+<script>
+(function () {
+  const root = document.body;
+  const toggle = document.getElementById('mode-toggle');
+  const live = document.getElementById('section-announcer');
+  const status = document.getElementById('position-status');
+  const sections = [...document.querySelectorAll('main > section')];
+  let index = 0;
+  let present = false;
+
+  function stabilizeChartLabels() {
+    document.querySelectorAll('.chart-wrap svg[data-chart-coordinate-width]').forEach(function (svg) {
+      const coordinateWidth = Number(svg.getAttribute('data-chart-coordinate-width'));
+      const renderedWidth = svg.getBoundingClientRect().width;
+      const baseViewBox = svg.dataset.chartBaseViewBox || svg.getAttribute('viewBox');
+      svg.dataset.chartBaseViewBox = baseViewBox;
+      const viewBoxParts = baseViewBox.split(/\s+/).map(Number);
+      if (!(coordinateWidth > 0 && renderedWidth > 0 && viewBoxParts.length === 4)) return;
+
+      // Measure from the authored viewBox on every pass so resize callbacks do
+      // not compound a previous compact gutter.
+      svg.setAttribute('viewBox', baseViewBox);
+      const inverseScale = coordinateWidth > renderedWidth
+        ? Math.max(1, coordinateWidth / renderedWidth)
+        : 1;
+      svg.style.setProperty('--chart-label-scale', String(inverseScale));
+
+      // Counter-scaling protects the 24px label floor, but a long end-anchored
+      // row label can then grow past the SVG's left edge at compact widths.
+      // Extend only the compact viewBox's left gutter; the plot and label keep
+      // their authored relationship, while the final inverse scale retains the
+      // same 24px rendered type. Wide/reference viewports compute zero gutter.
+      let gutter = 0;
+      svg.querySelectorAll('[data-chart-row-label]').forEach(function (label) {
+        label.removeAttribute('transform');
+        const renderedLabelWidth = label.getBoundingClientRect().width;
+        const anchorX = Number(label.getAttribute('x'));
+        const neededFraction = (renderedLabelWidth + 1) / renderedWidth;
+        if (!(anchorX >= 0 && neededFraction > 0 && neededFraction < 1)) return;
+        gutter = Math.max(gutter,
+          (neededFraction * coordinateWidth - anchorX) / (1 - neededFraction));
+      });
+      gutter = Math.max(0, gutter);
+      if (gutter > 0) {
+        svg.setAttribute('viewBox', [-gutter, viewBoxParts[1], coordinateWidth + gutter, viewBoxParts[3]].join(' '));
+        svg.style.setProperty('--chart-label-scale', String(Math.max(1, (coordinateWidth + gutter) / renderedWidth)));
+      }
+    });
+  }
+
+  const chartObserver = new ResizeObserver(stabilizeChartLabels);
+  document.querySelectorAll('.chart-wrap svg[data-chart-coordinate-width]').forEach(function (svg) {
+    chartObserver.observe(svg);
+  });
+  window.addEventListener('resize', stabilizeChartLabels);
+
+  function announce() {
+    const section = sections[index];
+    const title = section.querySelector('h2')?.textContent?.trim() || section.id;
+    live.textContent = 'Section ' + (index + 1) + ' of ' + sections.length + ': ' + title;
+    status.textContent = (index + 1) + ' / ' + sections.length;
+    sections.forEach((node, i) => {
+      if (i === index) {
+        node.setAttribute('aria-current', 'true');
+        node.tabIndex = 0;
+      } else {
+        node.removeAttribute('aria-current');
+        node.tabIndex = present ? -1 : 0;
+      }
+    });
+    if (present) {
+      section.focus({ preventScroll: true });
+    }
+  }
+
+  function setMode(next) {
+    present = next;
+    root.classList.toggle('mode-present', present);
+    root.classList.toggle('mode-reading', !present);
+    document.documentElement.classList.toggle('mode-present', present);
+    toggle.setAttribute('aria-pressed', String(present));
+    toggle.textContent = present ? 'Reading mode' : 'Present mode';
+    status.hidden = !present;
+    if (present) announce();
+    else {
+      sections.forEach(node => {
+        node.removeAttribute('aria-current');
+        node.tabIndex = 0;
+      });
+      live.textContent = 'Reading mode';
+      window.scrollTo(0, 0);
+    }
+    requestAnimationFrame(stabilizeChartLabels);
+  }
+
+  toggle.addEventListener('click', function () { setMode(!present); });
+  document.addEventListener('keydown', function (event) {
+    if (!present) return;
+    if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(event.key)) {
+      event.preventDefault();
+      index = Math.min(sections.length - 1, index + 1);
+      announce();
+    } else if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(event.key)) {
+      event.preventDefault();
+      index = Math.max(0, index - 1);
+      announce();
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      index = 0;
+      announce();
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      index = sections.length - 1;
+      announce();
+    } else if (event.key === 'Escape') {
+      setMode(false);
+    }
+  });
+
+  const copyLive = document.getElementById('copy-status');
+  document.querySelectorAll('.copy-code').forEach(function (button) {
+    button.addEventListener('click', async function () {
+      const encoded = button.getAttribute('data-code-b64') || '';
+      const baseName = button.getAttribute('data-name') || button.getAttribute('aria-label') || 'Copy';
+      const text = encoded ? new TextDecoder().decode(Uint8Array.from(atob(encoded), function (ch) { return ch.charCodeAt(0); })) : '';
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'Copied';
+        button.dataset.state = 'copied';
+        button.setAttribute('aria-label', (baseName.replace(/^Copy /, 'Copied ') || 'Copied code'));
+        if (copyLive) copyLive.textContent = (button.getAttribute('aria-label') || 'Code') + ' to the clipboard';
+      } catch (error) {
+        button.textContent = 'Select and copy';
+        button.dataset.state = 'fallback';
+        button.setAttribute('aria-label', 'Select and copy ' + baseName.replace(/^Copy /, ''));
+        if (copyLive) copyLive.textContent = 'Clipboard unavailable. Code selected for copying.';
+        const pre = button.parentElement.querySelector('pre');
+        if (pre) {
+          const range = document.createRange();
+          range.selectNodeContents(pre);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+      }
+      setTimeout(function () {
+        button.textContent = 'Copy';
+        delete button.dataset.state;
+        button.setAttribute('aria-label', baseName);
+        if (copyLive) copyLive.textContent = '';
+      }, 3200);
+    });
+  });
+
+  setMode(false);
+})();
+</script>
+</body>
+</html>
