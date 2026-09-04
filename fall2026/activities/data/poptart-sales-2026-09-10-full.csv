@@ -1,0 +1,685 @@
+date,store_id,sku,product_name,flavor,units,unit_price
+2026-08-22,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-22,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-22,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-22,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-22,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-22,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-22,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-22,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-22,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-22,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-22,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-22,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-22,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-22,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-22,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-22,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-22,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-22,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-22,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-08-22,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-22,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-22,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-22,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-22,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-22,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-22,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-22,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-22,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-22,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-22,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-22,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-22,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-22,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-22,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-22,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-22,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-23,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-23,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-23,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-23,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-23,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-23,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-23,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-23,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-23,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-23,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-23,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-23,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-23,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-23,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-23,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-23,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-23,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-23,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-23,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-23,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-23,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-23,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-23,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-23,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-23,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-23,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-23,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-23,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-23,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-23,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-23,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-23,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-23,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-23,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-08-23,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-23,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-24,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-24,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-24,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-24,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-24,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-24,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-24,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-24,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-24,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-24,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-24,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-24,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-24,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-24,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-24,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-24,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-24,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-24,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-24,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-24,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-24,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-24,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-24,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-24,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-24,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-24,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-24,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-24,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-24,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-24,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-24,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-24,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-24,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-24,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-24,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-24,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-25,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-25,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-25,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-25,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-25,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-25,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-25,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-25,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-25,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-25,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-25,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-25,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-25,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-25,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-25,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-25,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-25,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-25,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-25,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-25,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-25,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-25,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-25,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-25,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-25,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-25,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-25,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-25,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-25,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-25,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-25,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-25,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-25,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-25,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-25,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-25,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-26,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-26,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-26,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-26,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-26,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-26,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-26,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-26,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-26,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-26,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-26,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-26,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-26,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-26,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-26,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-26,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-26,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-26,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-26,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-26,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-26,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-26,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-26,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-26,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-26,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-26,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-26,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-26,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-26,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-27,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-27,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-27,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-27,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-27,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-27,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-27,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-27,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-27,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-27,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-27,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-27,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-27,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-27,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-27,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-27,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-27,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-27,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-27,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-27,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-27,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-27,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-27,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-27,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-27,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-27,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-27,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-27,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-27,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-27,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-27,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-28,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-28,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-28,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-28,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-28,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-28,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-28,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-28,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-28,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-28,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-28,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-28,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-28,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-28,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-28,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-28,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-28,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-28,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-28,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-28,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-28,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-28,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-28,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-28,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-28,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-28,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-28,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-28,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-28,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-28,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-28,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-28,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-28,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-28,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-28,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-28,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-29,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-29,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-29,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-29,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-29,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-29,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-29,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-29,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-29,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-29,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-29,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-29,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-29,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-08-29,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-29,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-29,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-29,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-29,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-29,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-29,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-29,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-29,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-29,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-29,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-29,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-29,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-29,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-29,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-29,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-29,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-30,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-30,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-30,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-30,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-30,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-30,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-30,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-30,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-30,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-30,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-30,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-30,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-30,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-30,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-30,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-08-30,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-30,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-30,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-30,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-30,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-30,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-30,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-30,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-30,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-30,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-30,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-30,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-30,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-30,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-30,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-30,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-31,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-31,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-31,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-08-31,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-31,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-31,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-31,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-08-31,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-31,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-31,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-31,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-31,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-31,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-31,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-31,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-08-31,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-08-31,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-31,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-08-31,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-31,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-08-31,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-31,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-08-31,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-31,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-08-31,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-31,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-08-31,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-08-31,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-08-31,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-08-31,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-08-31,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-01,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-01,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-09-01,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-01,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-01,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-01,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-01,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-01,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-01,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-01,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-01,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-09-01,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-01,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-01,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-01,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-01,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-01,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-01,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-01,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-01,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-01,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-01,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-01,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-01,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-01,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-02,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-02,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-02,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-02,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-02,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-02,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-02,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-02,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-02,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-09-02,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-02,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-02,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-02,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-02,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-02,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-02,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-09-02,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-02,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-09-02,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-02,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-02,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-02,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-02,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-02,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-02,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-09-02,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-02,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-02,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-02,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-02,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-03,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-03,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-03,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-03,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-03,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-03,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-03,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-03,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-03,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-03,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-03,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-03,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-03,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-03,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-03,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-03,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-03,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-03,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-03,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-03,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,11,3.29
+2026-09-03,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-03,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-09-03,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-03,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-03,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-03,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-03,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-03,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-03,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,13,3.29
+2026-09-03,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-03,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-03,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-03,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-03,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-03,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-03,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-04,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-04,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-09-04,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-04,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-04,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-04,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-04,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-04,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,14,3.49
+2026-09-04,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-04,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-04,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,16,3.49
+2026-09-04,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-04,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,11,3.49
+2026-09-04,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-04,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,13,3.49
+2026-09-04,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,10,3.29
+2026-09-04,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,8,3.49
+2026-09-04,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,17,3.49
+2026-09-04,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,12,3.29
+2026-09-04,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-04,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,12,3.49
+2026-09-04,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-04,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,6,3.49
+2026-09-04,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,15,3.49
+2026-09-04,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,9,3.29
+2026-09-04,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,7,3.49
+2026-09-05,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,77,3.49
+2026-09-05,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-05,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-05,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,89,3.49
+2026-09-05,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-05,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-05,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,98,3.49
+2026-09-05,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-05,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-05,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,87,3.49
+2026-09-05,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-05,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-05,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,99,3.49
+2026-09-05,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-05,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-05,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,89,3.49
+2026-09-05,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-05,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-05,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,102,3.49
+2026-09-05,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,25,3.29
+2026-09-05,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-05,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,78,3.49
+2026-09-05,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-05,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-05,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,102,3.49
+2026-09-05,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-05,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-05,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,102,3.49
+2026-09-05,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-05,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-05,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,110,3.49
+2026-09-05,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-05,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-05,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,111,3.49
+2026-09-05,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-05,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-06,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,107,3.49
+2026-09-06,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-06,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-06,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,94,3.49
+2026-09-06,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-06,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-06,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,97,3.49
+2026-09-06,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-06,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-06,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,112,3.49
+2026-09-06,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-06,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-06,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,102,3.49
+2026-09-06,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-06,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-06,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,78,3.49
+2026-09-06,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-06,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-06,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,76,3.49
+2026-09-06,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-06,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-06,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,100,3.49
+2026-09-06,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-06,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-06,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,103,3.49
+2026-09-06,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-06,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-06,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,112,3.49
+2026-09-06,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-06,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-06,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,98,3.49
+2026-09-06,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,25,3.29
+2026-09-06,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-06,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,83,3.49
+2026-09-06,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-06,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-07,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,77,3.49
+2026-09-07,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,27,3.29
+2026-09-07,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-07,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,78,3.49
+2026-09-07,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-07,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-07,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,89,3.49
+2026-09-07,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-07,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-07,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,93,3.49
+2026-09-07,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-07,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-07,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,101,3.49
+2026-09-07,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-07,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-07,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,77,3.49
+2026-09-07,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-07,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-07,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,100,3.49
+2026-09-07,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-07,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-07,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,107,3.49
+2026-09-07,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-07,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-07,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,88,3.49
+2026-09-07,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-07,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-07,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,114,3.49
+2026-09-07,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-07,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-07,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,80,3.49
+2026-09-07,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-07,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-07,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,109,3.49
+2026-09-07,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-07,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-08,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,108,3.49
+2026-09-08,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-08,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-08,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,102,3.49
+2026-09-08,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-08,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-08,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,79,3.49
+2026-09-08,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-08,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-08,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,112,3.49
+2026-09-08,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-08,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-08,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,113,3.49
+2026-09-08,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,25,3.29
+2026-09-08,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-08,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,104,3.49
+2026-09-08,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-08,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-08,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,100,3.49
+2026-09-08,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-08,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-08,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,79,3.49
+2026-09-08,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-08,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-08,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,110,3.49
+2026-09-08,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-08,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-08,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,86,3.49
+2026-09-08,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-08,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-08,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,113,3.49
+2026-09-08,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-08,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-08,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,98,3.49
+2026-09-08,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,23,3.29
+2026-09-08,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-09,S01,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,108,3.49
+2026-09-09,S01,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-09,S01,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-09,S02,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,83,3.49
+2026-09-09,S02,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,27,3.29
+2026-09-09,S02,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-09,S03,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,111,3.49
+2026-09-09,S03,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,20,3.29
+2026-09-09,S03,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-09,S04,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,80,3.49
+2026-09-09,S04,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,27,3.29
+2026-09-09,S04,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-09,S05,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,106,3.49
+2026-09-09,S05,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-09,S05,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-09,S06,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,84,3.49
+2026-09-09,S06,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-09,S06,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,10,3.49
+2026-09-09,S07,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,76,3.49
+2026-09-09,S07,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-09,S07,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-09,S08,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,95,3.49
+2026-09-09,S08,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,22,3.29
+2026-09-09,S08,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,13,3.49
+2026-09-09,S09,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,91,3.49
+2026-09-09,S09,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,24,3.29
+2026-09-09,S09,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,9,3.49
+2026-09-09,S10,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,78,3.49
+2026-09-09,S10,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,26,3.29
+2026-09-09,S10,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
+2026-09-09,S11,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,78,3.49
+2026-09-09,S11,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,21,3.29
+2026-09-09,S11,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,12,3.49
+2026-09-09,S12,PT-STRW,Pop-Tarts Strawberry 8ct,Strawberry,100,3.49
+2026-09-09,S12,PT-BSCN,Pop-Tarts Brown Sugar Cinnamon 8ct,Brown Sugar Cinnamon,19,3.29
+2026-09-09,S12,PT-BLUE,Pop-Tarts Blueberry 8ct,Blueberry,11,3.49
