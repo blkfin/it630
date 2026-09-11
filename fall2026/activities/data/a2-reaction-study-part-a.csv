@@ -1,0 +1,5 @@
+observation_id,participant_id,condition,trial,reaction_time_ms,correct
+O01,P01,quiet,1,390.0,True
+O02,P01,noisy,2,480.0,True
+O03,P02,quiet,1,410.0,True
+O04,P02,noisy,2,500.0,False
