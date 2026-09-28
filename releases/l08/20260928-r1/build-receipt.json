@@ -1,0 +1,68 @@
+{
+  "sourceCommit": "885d9ab74d2dffe68f72e0e9f5953ca9a1a592e4",
+  "sourceRef": "agent-host/lease/32fea831885544f9a7b1b1e25178aac6/office",
+  "launchTagCommit": "d2b399ec698190c482d76a789e835d7540a84d37",
+  "semanticSource": {
+    "path": "lecture.resolved.json",
+    "sha256": "58c79d2c0584875bada16092f1f9f0cd63c3ef7a5e078bb093ed75437a7003cb",
+    "schema": "lecture/v1"
+  },
+  "artifact": {
+    "path": "index.html",
+    "sha256": "559db34f37efd06d109d852d539c797d9676e84a0f2b6514c0667c244ebf9a77"
+  },
+  "instructorArtifacts": [
+    {
+      "path": "cue-sheet.html",
+      "audience": "instructor"
+    },
+    {
+      "path": "cue-sheet.md",
+      "audience": "instructor"
+    }
+  ],
+  "counts": {
+    "expectedSections": 11,
+    "renderedSections": 11,
+    "reachableSectionsReading": null,
+    "reachableSectionsPresent": null,
+    "reachableHeadingsReading": null,
+    "reachableHeadingsPresent": null,
+    "mathml": 0,
+    "codeStates": 6,
+    "mermaidSvg": 0,
+    "chartTables": 0,
+    "diagramDescriptions": 0,
+    "imageAlts": 0,
+    "imagePromptPlaceholders": 0,
+    "assetsCopied": 0,
+    "blocks": 23,
+    "cueSheetSlidesWithCues": 11,
+    "cueSheetSlidesWithoutCues": 0
+  },
+  "accessibility": {
+    "axeViolations": null,
+    "axTreeUsed": "CDP Accessibility.getFullAXTree",
+    "jsDisabledReachable": null
+  },
+  "manualChecksUnproved": [
+    "Title II / ADA program-access conformance (automation is evidence only)",
+    "Screen-reader walkthrough of both modes in VoiceOver and NVDA",
+    "Physical classroom projection judgment under room lighting",
+    "Zoom and reflow at 200% and 400% browser zoom",
+    "Keyboard-only teaching session across a full lecture",
+    "Syntax-theme and chart colors under projector wash",
+    "Color-contrast of syntax tokens inside highlighted code blocks"
+  ],
+  "deviations": [
+    "KaTeX visual HTML uses aria-hidden on .katex-html; exposed MathML retains the expression.",
+    "Same-screen animated code stepping was not added; successive complete code states are the MVP.",
+    "Chart SVG and data table are both generated from the block's held or bound data at build time.",
+    "Present mode has no panel scrolling: every section must fit 1920x1080; overflow fails the gate.",
+    "Present-mode floors: headings 40px/1.4, instructional 28px, chart/Mermaid text 24px, attribution 18px; code listings total at most 16 lines.",
+    "Review captures are viewport screenshots at 1920x1080, not element or full-page crops.",
+    "WCAG 2.1 A/AA-tagged axe scans plus mechanical SC checks are evidence only — not a Title II conformance claim.",
+    "Projection quality is also measured by the frozen selector-only instrument at projection-instrument.mjs.",
+    "Section source lineage is DERIVED from source_of_truth.canonical_file plus the section id; lecture/v1 carries no per-section lineage field."
+  ]
+}
