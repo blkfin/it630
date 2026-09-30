@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>IT 630 L09 Activity: Try the Matching-Pair Rule</title><style>
+body{font-family:Georgia,serif;max-width:7.5in;margin:0.4in auto;font-size:11pt;line-height:1.35;color:#111}
+h1{font-size:16pt;margin:0 0 4px}h2{font-size:12pt;margin:14px 0 4px;border-bottom:1px solid #999}
+table{border-collapse:collapse;margin:4px 0}td,th{border:1px solid #666;padding:2px 8px;font-family:Menlo,Consolas,monospace;font-size:10pt}
+th{background:#eee}code,pre{font-family:Menlo,Consolas,monospace;font-size:10pt}
+.blank{display:inline-block;border-bottom:1px solid #000;min-width:1.6in}
+.box{display:inline-block;border:1px solid #000;min-width:1in;height:24px;vertical-align:middle}
+.lines{border-bottom:1px solid #aaa;height:24px}
+.item{page-break-inside:avoid;margin-bottom:8px}
+.small{font-size:9.5pt;color:#333}
+.pair{display:flex;gap:0.6in;align-items:flex-start}
+@media print{body{margin:0.3in}}
+</style></head><body>
+<h1>IT 630 · L09 Activity: Try the Matching-Pair Rule</h1>
+<p class="small">Name: <span class="blank"></span> &nbsp; Paper only; no computer needed.</p>
+<p><b>Rule:</b> a join makes one output row for every matching pair. Work from pairs, not intuition.</p>
+<p>The company's trial: <code>readings</code> has two blood-pressure readings per participant. <code>enrollment</code> is the badge desk. It is clean except that <b>P02 appears twice</b> (P04 is back).</p>
+<div class="pair">
+<table><tr><th>participant_id</th><th>systolic_bp</th></tr>
+<tr><td>P01</td><td>130</td></tr><tr><td>P01</td><td>126</td></tr>
+<tr><td>P02</td><td>138</td></tr><tr><td>P02</td><td>142</td></tr>
+<tr><td>P03</td><td>124</td></tr><tr><td>P03</td><td>120</td></tr>
+<tr><td>P04</td><td>108</td></tr><tr><td>P04</td><td>112</td></tr></table>
+<table><tr><th>participant_id</th><th>arm</th></tr>
+<tr><td>P01</td><td>drug</td></tr><tr><td>P02</td><td>placebo</td></tr>
+<tr><td>P02</td><td>placebo</td></tr><tr><td>P03</td><td>drug</td></tr>
+<tr><td>P04</td><td>placebo</td></tr></table>
+</div>
+<p>Query: <code>readings JOIN enrollment USING (participant_id)</code></p>
+<div class="item"><h2>1. Write the output rows for P02. Pair each reading with both enrollment records.</h2>
+<table><tr><th>participant_id</th><th>systolic_bp</th><th>arm</th></tr>
+<tr><td>&nbsp;<br>&nbsp;</td><td></td><td></td></tr><tr><td>&nbsp;<br>&nbsp;</td><td></td><td></td></tr>
+<tr><td>&nbsp;<br>&nbsp;</td><td></td><td></td></tr><tr><td>&nbsp;<br>&nbsp;</td><td></td><td></td></tr></table></div>
+<div class="item"><h2>2. Predict the results. Show your pairing work in the margin.</h2>
+<p>Total rows in the inner join: <span class="box"></span></p>
+<p>Average systolic_bp of the placebo arm: <span class="box"></span></p></div>
+<div class="item"><h2>3. In one sentence: is the average wrong because of the query, or because of the rows it received?</h2>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div></div>
+</body></html>
