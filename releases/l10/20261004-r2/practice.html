@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fact-check the market report</title>
+<style>
+@page{size:letter;margin:.4in}
+*{box-sizing:border-box}
+body{font:12px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;color:#172635;max-width:7.7in;margin:auto}
+h1{font-size:20px;margin:0 0 2px}
+h2{font-size:14px;margin:10px 0 3px;padding-bottom:1px;border-bottom:1.5px solid #526579}
+h2 .tag{float:right;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#526579;padding-top:3px}
+.part{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#526579;margin:2px 0 0}
+p{margin:3px 0}
+code{font:11px ui-monospace,Menlo,Consolas,monospace}
+table{border-collapse:collapse}
+td,th{border:1px solid #8495a6;padding:2px 5px;vertical-align:top}
+th{background:#eef2f6;text-align:left;font-size:11px}
+th small{display:block;font-weight:400;color:#526579;font-size:9.5px}
+.data td{font:11.5px ui-monospace,Menlo,Consolas,monospace;padding:2px 7px}
+.data td.n{color:#6b7c8d;font-family:system-ui,sans-serif;font-size:10px}
+.data td.you{min-width:.45in}
+.build{width:100%}
+.build td{font:12px ui-monospace,Menlo,Consolas,monospace;height:27px;vertical-align:middle;padding:2px 7px}
+.build td.done{color:#526579;font-style:italic}
+.build tr.split td{border-top:2.5px solid #172635}
+.two{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.line{border-bottom:1px solid #8b98a5;height:24px}
+.blank{display:inline-block;border-bottom:1px solid #172635;min-width:.9in}
+.legend{background:#f8fafc;border:1.5px solid #526579;border-radius:6px;padding:4px 8px;margin:3px 0 5px}
+.legend b{display:inline-block;min-width:14px}
+.heads{width:100%}
+.heads td{height:50px}
+.heads td.h{font-weight:600;width:2.15in}
+.heads td.h small{display:block;font-weight:400;color:#526579;font-size:10px}
+.heads td.grey{background:#eef2f6;color:#526579;font-size:10px;vertical-align:middle;text-align:center}
+.heads th{font-size:10.5px}
+.box{border:1.5px dashed #8495a6;border-radius:6px;padding:4px 8px;margin-top:10px;font-size:11px}
+.q{margin:5px 0 5px 26px;text-indent:-26px}.q>b.k{display:inline-block;width:26px;text-indent:0}
+.page2{break-before:page}
+</style></head><body>
+<h1>Fact-check the market report</h1>
+<p>Name: ______________________________ &nbsp; Work in pairs. Paper only. KOI and ZAP are made-up stocks; the prices are whole dollars so you can focus on the reasoning.</p>
+<p class="part">Side 1: build the window</p>
+
+<h2>A. Get the rows ready <span class="tag">crawl</span></h2>
+<div class="two">
+<table class="data" aria-label="Nine closing prices in the order they arrived">
+<tr><th></th><th>ticker</th><th>date</th><th>close</th></tr>
+<tr><td class="n">1</td><td>ZAP</td><td>2026-10-12 Mon</td><td>22</td></tr>
+<tr><td class="n">2</td><td>KOI</td><td>2026-10-09 Fri</td><td>44</td></tr>
+<tr><td class="n">3</td><td>KOI</td><td>2026-10-13 Tue</td><td>43</td></tr>
+<tr><td class="n">4</td><td>ZAP</td><td>2026-10-08 Thu</td><td>20</td></tr>
+<tr><td class="n">5</td><td>KOI</td><td>2026-10-12 Mon</td><td>41</td></tr>
+<tr><td class="n">6</td><td>ZAP</td><td>2026-10-13 Tue</td><td>24</td></tr>
+<tr><td class="n">7</td><td>KOI</td><td>2026-10-09 Fri</td><td>44</td></tr>
+<tr><td class="n">8</td><td>KOI</td><td>2026-10-08 Thu</td><td>40</td></tr>
+<tr><td class="n">9</td><td>ZAP</td><td>2026-10-09 Fri</td><td>18</td></tr>
+</table>
+<div>
+<p>Nine closing prices arrived from a price feed, in no particular order.</p>
+<div class="q"><b class="k">A1</b>Finish the grain sentence: one row is one <span class="blank" style="min-width:.8in"></span> on one <span class="blank" style="min-width:.8in"></span>.<br>Which columns, together, must be unique? <span class="blank"></span></div>
+<div class="q"><b class="k">A2</b>One row breaks that rule. Cross it out.</div>
+<div class="q"><b class="k">A3</b>Which rows could a window not tell apart if that row stayed in? Which columns in B would it quietly change?<div class="line"></div></div>
+</div>
+</div>
+
+<h2>B. Build three window columns by hand <span class="tag">crawl → walk</span></h2>
+<p>Here are the 8 kept rows in window order: partition by <code>ticker</code>, order by <code>date</code>. Fill in <b>every</b> empty cell. The first row is done for you.</p>
+<table class="build" aria-label="Window columns to fill in">
+<tr><th>ticker</th><th>date</th><th>close</th><th>ticker_avg<small>its group</small></th><th>previous_close<small>the row before</small></th><th>change<small>close − previous_close</small></th><th>peak_so_far<small>everything so far</small></th></tr>
+<tr><td>KOI</td><td>10-08 Thu</td><td>40</td><td class="done">42</td><td class="done">NULL</td><td class="done">NULL</td><td class="done">40</td></tr>
+<tr><td>KOI</td><td>10-09 Fri</td><td>44</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>KOI</td><td>10-12 Mon</td><td>41</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>KOI</td><td>10-13 Tue</td><td>43</td><td></td><td></td><td></td><td></td></tr>
+<tr class="split"><td>ZAP</td><td>10-08 Thu</td><td>20</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>ZAP</td><td>10-09 Fri</td><td>18</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>ZAP</td><td>10-12 Mon</td><td>22</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>ZAP</td><td>10-13 Tue</td><td>24</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<div class="q"><b class="k">B1</b>Rows in: <span class="blank" style="min-width:.5in"></span> &nbsp; Rows out: <span class="blank" style="min-width:.5in"></span> &nbsp; Which column has the same value on every row of a stock, and why?<div class="line"></div></div>
+<div class="q"><b class="k">B2</b>On the table, draw a bracket beside the rows that KOI's Monday row uses for <code>ticker_avg</code>, and a second bracket for <code>peak_so_far</code>. Which bracket reaches past Monday? <span class="blank" style="min-width:1.4in"></span></div>
+<div class="q"><b class="k">B3</b>Why is ZAP's Thursday <code>previous_close</code> NULL and not 43? What would 0 have claimed instead?<div class="line"></div></div>
+<div class="q"><b class="k">B4</b>A classmate's table shows ZAP's Thursday change as <b>−23</b>. Which row did their query use as "the row before"? What did they leave out of the window?<div class="line"></div></div>
+
+<div class="page2">
+<p class="part">Side 2: use the window</p>
+<h2>C. Fact-check the headlines <span class="tag">jog → run</span></h2>
+<p>Each headline is about <b>KOI on Monday, October 12</b> unless it names another stock. A headline is a claim, and every claim quietly picks a context. Use your table from B.</p>
+<div class="legend"><b>Context:</b> &nbsp; <b>G</b> its group &nbsp;·&nbsp; <b>B</b> the row before &nbsp;·&nbsp; <b>S</b> everything so far &nbsp;·&nbsp; <b>N</b> no window needed (GROUP BY)</div>
+<table class="heads" aria-label="Headline fact-check table">
+<tr><th>Headline</th><th style="width:.6in">Context</th><th style="width:1.45in">Which column or query answers it?</th><th style="width:.65in">Rows out (8 or 2)</th><th>True or false? Show the number.</th></tr>
+<tr><td class="h">1. “KOI drops $3 Monday.”</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="h">2. “KOI is trading below its average.”</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="h">3. “KOI sets a new high Monday.”</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="h">4. “ZAP’s best close of the week was $24.”</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="h">5. “KOI rose on half its trading days.”</td><td></td><td></td><td class="grey" colspan="2">answer in 6</td></tr>
+</table>
+<div class="q"><b class="k">6.</b>Headline 5 needs a denominator. Write it two ways, then say which one makes the headline true.<br>
+The denominator is <span class="blank" style="min-width:2.6in"></span>, so the rate is <span class="blank" style="min-width:.7in"></span>.<br>
+The denominator is <span class="blank" style="min-width:2.6in"></span>, so the rate is <span class="blank" style="min-width:.7in"></span>.<br>
+The headline is true when <span class="blank" style="min-width:4.2in"></span></div>
+
+<h2>D. New questions, same table <span class="tag">sprint</span></h2>
+<div class="q"><b class="k">7.</b>“ZAP was Monday's best mover.” True or false? This one compares <i>across</i> stocks. What is the partition now, and which column from B do you need first?<div class="line"></div><div class="line"></div></div>
+<div class="q"><b class="k">8.</b>KOI closes at <b>$50 on Wednesday, October 14</b>. Add that row. Which of headlines 1, 2 and 3 change their number? &nbsp; Circle: &nbsp; 1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3<br>
+Use your brackets from B2 to explain why.<div class="line"></div><div class="line"></div></div>
+<div class="q"><b class="k">9.</b>Headline 5's two rates are now <span class="blank" style="min-width:.7in"></span> and <span class="blank" style="min-width:.7in"></span>. Did the denominator question go away?</div>
+
+<div class="box"><b>Done early? Try it on a real stock.</b> Pick any ticker, then in Python:
+<code>import yfinance as yf; df = yf.download("AAPL", start="2026-09-01", end="2026-10-03")</code>.
+Find a Monday. What is its previous row? Which of headlines 1, 2 and 3 would that affect?</div>
+</div>
+</body></html>
