@@ -1,0 +1,91 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Which total do we trust?</title>
+<style>
+@page{size:letter;margin:.4in}
+*{box-sizing:border-box}
+body{font:12px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;color:#172635;max-width:7.7in;margin:auto}
+h1{font-size:18px;margin:0 0 2px}
+h2{font-size:13px;margin:12px 0 4px;padding-bottom:1px;border-bottom:1.5px solid #526579}
+h2 .tag{float:right;font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#526579;padding-top:3px}
+p{margin:3px 0}
+code{font:10.5px ui-monospace,Menlo,Consolas,monospace}
+table{border-collapse:collapse}
+td,th{border:1px solid #8495a6;padding:2px 5px;vertical-align:top}
+th{background:#eef2f6;text-align:left;font-size:10.5px}
+.data td{font:10.5px ui-monospace,Menlo,Consolas,monospace;padding:3px 6px;white-space:nowrap}
+.sql{font:10.5px/1.3 ui-monospace,Menlo,Consolas,monospace;background:#f8fafc;border:1px solid #8495a6;border-radius:4px;padding:3px 8px;margin:3px 0;white-space:pre}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.blank{display:inline-block;border-bottom:1px solid #172635;min-width:.8in}
+.line{border-bottom:1px solid #8b98a5;height:24px}
+.q{margin:6px 0 4px 24px;text-indent:-24px}.q>b.k{display:inline-block;width:24px;text-indent:0}
+.files td{font:11px ui-monospace,Menlo,Consolas,monospace;padding:2px 8px}
+.files td.r{text-align:right}
+.exit{border:2px solid #172635;border-radius:6px;padding:4px 9px;margin-top:8px}
+.exit h2{border:none;margin-top:2px}
+.opt{display:inline-block;margin-right:18px;text-indent:0;border:1px solid #8495a6;border-radius:10px;padding:0 7px}
+.extra{font-size:10.5px;color:#334a5f}
+</style></head><body>
+<h1>Which total do we trust?</h1>
+<p>Name: ______________________________ &nbsp; Write each answer <b>before</b> the slide reveals it. Changing an answer after the reveal is fine; cross it out, don't erase.</p>
+
+<div class="two">
+<div>
+<h2>A. What does one row mean? <span class="tag">midterm Q16</span></h2>
+<p>12 loans by 5 members; exactly 4 loans have <code>days_kept &gt; 14</code>.</p>
+<div class="sql">SELECT loan_id, branch, days_kept
+FROM loans
+WHERE days_kept &gt; 14
+ORDER BY days_kept DESC;</div>
+<div class="q"><b class="k">A1</b>Rows returned: <span class="blank" style="min-width:.5in"></span> &nbsp; One row is one <span class="blank" style="min-width:1in"></span></div>
+</div>
+<div>
+<h2>B. Where does the key check go? <span class="tag">midterm Q23</span></h2>
+<p>Each <code>students</code> row should be one student, but S07 may appear twice. The joined result has one row per tutoring session matched to a student.</p>
+<div class="sql">SELECT COUNT(*), COUNT(DISTINCT student_id)
+FROM ________ ;</div>
+<div class="q"><b class="k">B1</b>Circle one: &nbsp; <span class="opt"><b>students</b></span> <span class="opt"><b>joined result</b></span></div>
+<div class="q"><b class="k">B2</b>Why not the other one?<div class="line"></div></div>
+</div>
+</div>
+
+<h2>C. Same rows, stored two ways <span class="tag">row vs column</span></h2>
+<p>The first six rows of the Pop-Tart export (all 7 fields). The query is <code>SELECT SUM(units) FROM sales;</code></p>
+<table class="data" aria-label="Six rows from the Pop-Tart export">
+<tr><th>date</th><th>store_id</th><th>sku</th><th>product_name</th><th>flavor</th><th>units</th><th>unit_price</th></tr>
+<tr><td>2026-08-22</td><td>S01</td><td>PT-STRW</td><td>Pop-Tarts Strawberry 8ct</td><td>Strawberry</td><td>17</td><td>3.49</td></tr>
+<tr><td>2026-08-22</td><td>S01</td><td>PT-BSCN</td><td>Pop-Tarts Brown Sugar Cinnamon 8ct</td><td>Brown Sugar Cinnamon</td><td>9</td><td>3.29</td></tr>
+<tr><td>2026-08-22</td><td>S01</td><td>PT-BLUE</td><td>Pop-Tarts Blueberry 8ct</td><td>Blueberry</td><td>7</td><td>3.49</td></tr>
+<tr><td>2026-08-22</td><td>S02</td><td>PT-STRW</td><td>Pop-Tarts Strawberry 8ct</td><td>Strawberry</td><td>12</td><td>3.49</td></tr>
+<tr><td>2026-08-22</td><td>S02</td><td>PT-BSCN</td><td>Pop-Tarts Brown Sugar Cinnamon 8ct</td><td>Brown Sugar Cinnamon</td><td>10</td><td>3.29</td></tr>
+<tr><td>2026-08-22</td><td>S02</td><td>PT-BLUE</td><td>Pop-Tarts Blueberry 8ct</td><td>Blueberry</td><td>6</td><td>3.49</td></tr>
+</table>
+<div class="q"><b class="k">C1</b>Shade every cell the sum actually needs. Sum: <span class="blank" style="min-width:.5in"></span></div>
+<div class="q"><b class="k">C2</b>Stored <b>row by row</b>, a reader passes through whole rows. Cells passed: <span class="blank" style="min-width:.5in"></span> &nbsp; Stored <b>by column</b>, it can read just the units chunk. Cells read: <span class="blank" style="min-width:.5in"></span></div>
+<div class="q"><b class="k">C3</b>How many <i>different</i> flavors are in the flavor column? <span class="blank" style="min-width:.4in"></span> &nbsp; Give each one a number (0, 1, 2…) and rewrite the flavor chunk as numbers: <span class="blank" style="min-width:1.3in"></span></div>
+
+<div class="two">
+<div>
+<h2>D. A correction arrives <span class="tag">safe updates</span></h2>
+<p>One sales table is stored as files. A store resent one slice, so <b>C_new replaces C</b>; it is not extra sales. All four files are now in the folder.</p>
+<table class="files" aria-label="Teaching files">
+<tr><th>file</th><th>units</th></tr>
+<tr><td>A</td><td class="r">100</td></tr><tr><td>B</td><td class="r">200</td></tr>
+<tr><td>C (old slice)</td><td class="r">300</td></tr><tr><td>C_new (replacement)</td><td class="r">280</td></tr>
+</table>
+</div>
+<div>
+<div class="q" style="margin-top:22px"><b class="k">D1</b>A query adds every file in the folder. Total: <span class="blank" style="min-width:.5in"></span> Why is it wrong?<div class="line"></div></div>
+<div class="q"><b class="k">D2</b>The correct total after the correction: <span class="blank" style="min-width:.5in"></span> Files counted: <span class="blank" style="min-width:.9in"></span></div>
+<div class="q"><b class="k">D3</b>A report started <i>before</i> the correction was committed. What total should it finish with? <span class="blank" style="min-width:.5in"></span></div>
+<div class="q extra"><b class="k">D4</b><i>If time:</i> the writer crashed after writing C_new but before committing. What does a new reader get, and does C_new count? <span class="blank" style="min-width:1.4in"></span></div>
+</div>
+</div>
+
+<div class="exit">
+<h2>E. Exit ticket: the campus shop <span class="tag">hand this in</span></h2>
+<p>A campus shop keeps its raw register logs <b>and</b> runs a daily sales report while corrections keep arriving. Same files as D, except this time C_new = <b>260</b>.</p>
+<div class="q"><b class="k">E1</b>Circle one and give one reason: &nbsp; <span class="opt">warehouse</span><span class="opt">lake files only</span><span class="opt">lakehouse table</span><span class="opt">lake + warehouse</span><div class="line"></div><div class="line"></div></div>
+<div class="q"><b class="k">E2</b>What decides which files the report counts? <span class="blank" style="min-width:3.4in"></span></div>
+<div class="q"><b class="k">E3</b>New total: <span class="blank" style="min-width:.5in"></span> &nbsp; Files counted: <span class="blank" style="min-width:1in"></span> &nbsp; Is file C still in storage? <span class="blank" style="min-width:.6in"></span></div>
+</div>
+</body></html>
