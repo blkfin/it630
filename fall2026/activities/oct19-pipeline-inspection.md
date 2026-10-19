@@ -1,6 +1,6 @@
 # Purchases, corrections, and pipeline choices
 
-**IT 630 · October 19 · 10 minutes · Work in pairs**  
+**IT 630 · October 19 · 10 minutes · Work in pairs**<br>
 <p>Name(s): <span style="display:inline-block;width:105mm;border-bottom:1px solid #89949e">&nbsp;</span></p>
 
 Use what the lecture taught to reason through new cases. Show arithmetic and explain which records your result counts. Spend about three minutes each on Cases 1 and 2, and four minutes on Case 3.
