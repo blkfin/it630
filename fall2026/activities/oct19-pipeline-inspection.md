@@ -1,53 +1,63 @@
-# Can you trust H2's total?
+# Purchases, corrections, and pipeline choices
 
-Ten-minute paired inspection. No code execution or setup required. One partner traces the records; the other challenges the evidence. Switch halfway.
+**IT 630 · October 19 · 10 minutes · Work in pairs**  
+<p>Name(s): <span style="display:inline-block;width:105mm;border-bottom:1px solid #89949e">&nbsp;</span></p>
 
-Vendor v1: USD dollars; one completed purchase per stable purchase_id.
+Use what the lecture taught to reason through new cases. Show arithmetic and explain which records your result counts. Spend about three minutes each on Cases 1 and 2, and four minutes on Case 3.
 
-```csv
-purchase_id,hall_id,purchased_at,amount
-Q201,H2,2026-10-19T12:00:00-04:00,6.00
-Q202,H2,2026-10-19T12:05:00-04:00,8.00
-Q203,H2,2026-10-19T12:10:00-04:00,3.00
-```
+## Starting records and rules
 
-CSV → bronze received records → silver accepted purchases → gold hall/day → dashboard
+The accepted purchases for hall H2 on October 19 are:
 
-## Reader assumptions
+| purchase_id | amount_usd |
+|---|---:|
+| Q201 | 6.00 |
+| Q202 | 8.00 |
+| Q203 | 3.00 |
 
-- Bronze preserves source values, source version and delivery identity. Repeated deliveries are allowed.
-- Silver selects purchase_id, hall_id, purchased_at and amount by name, permits unused fields, parses the stated types, and initially assumes USD dollars without checking the declared units.
-- For the safe path, silver upserts by purchase_id: insert new IDs, replace existing ones. Input and rules are fixed; no conflicting corrections occur.
-- Gold reads only stable silver fields and recomputes the affected hall/day. The date is the timestamp's local date. The dashboard reads gold.
-- Compare naive append as a separate unsafe path, never as the safe reader's behavior.
-- Each change starts independently from the original v1 specimen. The cents retry repeats only the explicitly adapted cents specimen.
+All purchases belong to the same hall and date. One silver row represents one purchase, identified by **purchase_id**, not by its price. Gold recomputes the hall/day sum from silver. Bronze retains received records, delivery identity and source values; a delivery may repeat an earlier record.
 
-## Inspect and explain
+Compare two silver write rules: **append** inserts every received row; **upsert** inserts a new purchase_id or replaces that ID's existing row. The starting state contains the three rows above exactly once. **Cases 1 and 2 each start independently from this state.**
 
-For every change, name the boundary, consequence and evidence. Spend two minutes on grain, two on replay, four on independent changes and two on repaired retry.
+## Case 1 · A delivery partly overlaps (3 minutes)
 
-1. Complete “One row means…” for bronze, silver and gold. Where would you check uniqueness of purchase_id?
-2. Sum the original purchases. Deliver the identical batch twice: what total follows from naive append? What purchase count and total follow from upsert plus gold recompute? Show arithmetic.
-3. Inspect three independent change cards: (A) add payment_method, with values card/card/cash; (B) rename purchased_at to timestamp, keeping its values; (C) declare cents and replace amounts with 600/800/300, keeping the field name and numeric type. For each, name (1) the first boundary that inspects the change, (2) the downstream consequence, including whether it errors, stays silent or remains correct, and (3) one piece of evidence or repair. Show the expected cents total under the unchanged reader.
+A later delivery contains:
 
-| Case | Boundary | Consequence | Evidence or repair |
-|---|---|---|---|
-| A | | | |
-| B | | | |
-| C | | | |
+| purchase_id | amount_usd |
+|---|---:|
+| Q202 | 8.00 |
+| Q204 | 8.00 |
 
-Cents total under unchanged reader: __________________
+Q202 repeats the original purchase; Q204 is a different, valid purchase.
 
-4. Now use the declared cents-version adapter: read raw bronze amounts, divide by 100, upsert by purchase_id, recompute gold. Trace first run and retry. State silver's values, purchase count and H2 total. Which input must division read to avoid conversion twice?
+1. Calculate the starting total. After this delivery, give the silver row count and gold total for **append** and for **upsert**.
+2. A teammate proposes dropping repeated amounts instead of matching purchase_id. Explain which legitimate purchase that could remove and why equal prices do not establish identity.
+3. If the same later delivery arrives once more, does the upsert result change? Explain.
 
-## Optional SQL support
+<div class="answer tall"></div>
 
-You can answer using the pipeline line above.
+<div class="page-break"></div>
 
-```sql
-SELECT hall_id, local_date, SUM(amount_usd) AS charged_usd
-FROM silver_purchases
-GROUP BY hall_id, local_date;
-```
+## Case 2 · An existing purchase is corrected (3 minutes)
 
-local_date comes from purchased_at; amount_usd is silver's accepted dollar amount.
+Start again with only Q201, Q202 and Q203 from the starting table. The vendor sends **Q202, 5.00**, explicitly marked as a later correction that replaces Q202's earlier amount of 8.00. Process deliveries in order; no newer correction is present.
+
+1. What silver row count and gold total follow from **append**? What count and total follow from **upsert**? Show the arithmetic.
+2. The correction is delivered a second time. Give both totals after this retry.
+3. The correction and the original both remain in bronze. Does that require counting both in the report? Explain the different purposes of bronze and silver.
+
+<div class="answer medium"></div>
+
+## Case 3 · Where should transformation run? (4 minutes)
+
+The source is still the dining purchase feed. Both destinations need duplicate removal, timestamp parsing and daily aggregation. For **each** destination, choose ETL or ELT **relative to the named destination**. State where transformation runs and identify the requirement that supports your choice.
+
+**A. Finance reporting database.** Its approved input accepts only final hall/day totals. It cannot store purchase-level raw rows. A separate processing service can prepare those totals before loading them.
+
+**B. Analytics database.** It can store raw purchase rows and run SQL transformations. Analysts need to revise grouping rules later and recompute reports from retained purchase detail.
+
+<div class="answer medium"></div>
+
+A copy of the original CSV is retained outside either destination. **Does that fact alone tell you whether the pipeline is ETL or ELT? Why?**
+
+<div class="answer short"></div>
