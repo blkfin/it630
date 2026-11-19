@@ -1,0 +1,412 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>IT 630 • November 20 study guide and short-answer practice</title><style>@page{size:Letter;margin:0} *{box-sizing:border-box}body{margin:0;color:#152538;font:11pt/1.3 Arial,sans-serif} .page{width:612pt;min-height:792pt;padding:42pt 47pt;break-after:page} .page:last-child{break-after:auto}h1{font-size:22pt;color:#143955;margin:0 0 12pt}h2{font-size:14pt;margin:15pt 0 5pt}h3{font-size:11.5pt;margin:10pt 0 4pt}p{margin:0 0 8pt}li{margin-bottom:6pt}table{width:100%;border-collapse:collapse;font-size:10pt}td,th{padding:7pt;border:1px solid #9aabb9;vertical-align:top;text-align:left}th{background:#edf3f7}.small{font-size:9.5pt}.label{color:#526777;font-size:9pt;text-transform:uppercase;letter-spacing:.7pt}.question{margin:0 0 8pt;break-inside:avoid}.question p{margin-bottom:4pt}.write{height:60pt;background:repeating-linear-gradient(to bottom,transparent 0,transparent 19pt,#c5cfd7 19pt,#c5cfd7 20pt)}.bob{padding:0;height:792pt;overflow:hidden}.bob p{margin:0;padding:0}.bob div{background:white!important}.practice{padding:36pt 47pt;font-size:10.5pt;line-height:1.2}.practice h1{font-size:20pt;margin-bottom:8pt}.practice h3{margin:8pt 0 3pt}.practice .question{margin-bottom:6pt}</style><main>
+<section class="page"><p class="label">IT 630 · Friday, November 20, 2026</p><h1>Study guide &amp; short-answer practice</h1><p><strong>Coverage: after the October 13 midterm through November 18.</strong> Start with this dated topic list. The ML reference follows, then questions across the full review period.</p><p><strong>Friday plan — 50 minutes:</strong> 8 minutes to scan the guide and locate unfamiliar topics; 36 minutes for the 18 short answers (at most two brief asks each; about 2 minutes per question); 6 minutes to compare reasoning and revisit uncertain answers. Use the reference while answering. A sentence or two is enough; no formulas, code, or model internals are required.</p><h2>Dated topic list: data systems</h2><h3>October 14 / 16 · Storage and reliable versions</h3><p>Parquet groups data by columns, so a query needing only a few columns can avoid reading others. A data lake stores flexible raw data; a warehouse organizes prepared reporting data; a lakehouse adds reliable table management to lake storage. In a star, facts record events and measures; dimensions supply context.</p><p>A coordinated table version identifies the files belonging together. Finish and validate replacement files before atomically committing the new version: a reader sees a consistent old or new snapshot, rather than a mixture.</p><h3>October 19 · Pipelines and changing sources</h3><p><strong>ETL</strong> prepares data before loading the destination; <strong>ELT</strong> loads first and transforms there. <strong>Bronze</strong> retains received records; <strong>silver</strong> holds accepted, standardized records; <strong>gold</strong> serves reports. State what one row means at each layer. A retry should be <strong>idempotent</strong>: replaying the same input does not double the result.</p><p>A renamed field changes the schema; dollars changing to cents can preserve names and numeric types while changing meaning. An adapter maps a declared source version into the names and units downstream users expect.</p><h3>October 21 / 23 · Checks, corrections, and history</h3><p>Executable checks can test required columns/types, unique keys, allowed values/units, and expected history. A passing job or schema check alone does not prove the report is correct. Checks establish only the conditions they actually test.</p><p>For a lakehouse correction, the table's recorded snapshot determines which files count; a stray file is not automatically part of the table. <strong>Time travel</strong> reads an older version. It does not itself undo a correction or make that version current.</p><h3>October 26 · Performance and cost</h3><p>Partition pruning skips irrelevant groups of files; column selection and statistics can skip more data. A <strong>plan</strong> describes intended work; a <strong>profile</strong> shows what actually ran. Moving data and uneven work (<strong>skew</strong>) can dominate runtime. Include preparation cost when comparing approaches; a cached result can be fast but stale.</p></section>
+<section class="page"><p class="label">Dated topic list · continued</p><h2>From location data to model evaluation</h2><h3>October 28 / 30 · Geospatial walkthrough</h3><p>GeoPandas works with geometry such as points and area boundaries. A key-based merge attaches a population table to the corresponding area boundaries. Check both the row count and unmatched keys. The coordinate reference system (CRS) tells you what coordinates and their units mean; area from coordinates in feet is in square feet, not square miles. A map of total population answers a different question from a map of population per unit area.</p><h3>November 2 · Charts, storytelling, and data cards</h3><p>Choose a chart for the question: bars compare categories; a line shows change over time. State a claim the displayed data actually supports. A data card records context, source, coverage, and limitations; documentation makes limitations visible but does not repair missing or biased evidence.</p><h3>November 4 / 6 · Streaming clocks and late data</h3><p><strong>Bounded</strong> input has an end; an <strong>unbounded</strong> stream keeps arriving. Batch/stream choices concern how work is processed; frequent batches do not make event time and arrival time identical. <strong>Event time</strong> is when something happened; <strong>processing time</strong> is when the system handles it. A <strong>window</strong> groups observations over time.</p><p>A <strong>watermark</strong> estimates progress in event time; it is not proof that every event has arrived. Waiting longer can include more late data but costs latency and retained state. Finalizing sooner needs a policy for later arrivals and a clear explanation of possible incomplete results.</p><h3>November 13 · First KNN model and safeguards</h3><p>Features are inputs; the target is the answer being predicted. Split into training and held-out test data. Fit scaling on <strong>training data only</strong>, then apply that same transformation to test data. Fitting a missing-value fill or other learned preparation also belongs inside the training boundary.</p><p><strong>Leakage</strong> means information unavailable at prediction time sneaks into training or evaluation. Remove features that reveal the outcome or come from the future. Compare with a simple <strong>baseline</strong>, such as always predicting the most common class.</p><p><strong>Precision:</strong> of the cases we flag, how many really need action? <strong>Recall:</strong> of all cases needing action, how many did we find? Accuracy alone can hide missed rare cases. If staff can contact only a few people, evaluate the ranked action list and its tradeoff between useful contacts and missed needs.</p><h3>November 16 / 18 · Model families and choosing a first fit</h3><p>Review the ML reference next: task type, preparation, over/underfitting, model strengths and limits. Then use the additional-family overview. Name a defensible first choice and a limitation; test it on held-out data rather than declaring a universal winner.</p><p class="small">The dates identify course materials for review. The ML reference keeps its original section labels 1/7–5/7; its “page 3” means ML reference 3/7. Short-answer practice for the whole guide is at the end.</p></section>
+<style type="text/css">
+<!--
+		.ft10{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#2562a7;}
+	.ft11{font-size:26pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft12{font-size:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#33465d;}
+	.ft13{font-size:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#33465d;}
+	.ft14{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft15{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft16{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft17{font-size:11pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft18{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft19{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#6a7990;}
+	.ft110{font-size:12pt;line-height:16pt;font-family:"Liberation Sans",Arial,sans-serif;color:#33465d;}
+	.ft111{font-size:10pt;line-height:14pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+-->
+</style><section class="page bob"><div id="page1-div" style="position:relative;width:612pt;height:792pt;">
+<p style="position:absolute;top:37pt;left:47pt;white-space:nowrap" class="ft10"><b>I&#160;T&#160;&#160;&#160;6&#160;3&#160;0&#160;&#160;&#160;·&#160;&#160;&#160;D&#160;ATA&#160;&#160;S&#160;C&#160;I&#160;E&#160;N&#160;C&#160;E&#160;&#160;A&#160;N&#160;D&#160;&#160;&#160;S&#160;C&#160;A&#160;L&#160;A&#160;B&#160;L&#160;E&#160;&#160;&#160;D&#160;ATA&#160;&#160;S&#160;Y&#160;S&#160;T&#160;E&#160;M&#160;S&#160;&#160;&#160;·&#160;&#160;&#160;F&#160;R&#160;I&#160;D&#160;AY&#160;&#160;&#160;R&#160;E&#160;V&#160;I&#160;E&#160;W</b></p>
+<p style="position:absolute;top:52pt;left:47pt;white-space:nowrap" class="ft11"><b>Machine&#160;Learning&#160;Basics:</b></p>
+<p style="position:absolute;top:79pt;left:47pt;white-space:nowrap" class="ft11"><b>Match&#160;the&#160;Model&#160;to&#160;the&#160;Task</b></p>
+<p style="position:absolute;top:117pt;left:47pt;white-space:nowrap" class="ft12">Quiz review for&#160;</p>
+<p style="position:absolute;top:117pt;left:130pt;white-space:nowrap" class="ft13"><b>Monday, November 23</b></p>
+<p style="position:absolute;top:117pt;left:257pt;white-space:nowrap" class="ft12">. Work through this on your own on Friday.&#160;The quiz is</p>
+<p style="position:absolute;top:134pt;left:47pt;white-space:nowrap" class="ft110">big-picture: can you read a problem, name what kind of task it is, and pick a model family that fits<br/>- and say why?</p>
+<p style="position:absolute;top:184pt;left:60pt;white-space:nowrap" class="ft14"><b>How&#160;the&#160;quiz&#160;thinks&#160;-&#160;read&#160;this&#160;first.</b></p>
+<p style="position:absolute;top:199pt;left:60pt;white-space:nowrap" class="ft15">It&#160;will&#160;</p>
+<p style="position:absolute;top:199pt;left:85pt;white-space:nowrap" class="ft16"><i>not</i></p>
+<p style="position:absolute;top:199pt;left:99pt;white-space:nowrap" class="ft15">&#160;ask&#160;you&#160;to&#160;derive&#160;formulas&#160;or&#160;recall&#160;fine&#160;detail&#160;about&#160;how&#160;each&#160;family&#160;works&#160;inside.&#160;It&#160;</p>
+<p style="position:absolute;top:199pt;left:476pt;white-space:nowrap" class="ft16"><i>will</i></p>
+<p style="position:absolute;top:199pt;left:490pt;white-space:nowrap" class="ft15">&#160;give&#160;you&#160;a</p>
+<p style="position:absolute;top:213pt;left:60pt;white-space:nowrap" class="ft111">scenario&#160;and&#160;ask:&#160;Is&#160;this&#160;regression&#160;or&#160;classification?&#160;Is&#160;the&#160;data&#160;even&#160;set&#160;up&#160;so&#160;a&#160;model&#160;can&#160;use&#160;it?&#160;Where<br/>does&#160;data&#160;live&#160;before&#160;that&#160;-&#160;a&#160;lake,&#160;a&#160;warehouse,&#160;or&#160;a&#160;lakehouse?&#160;Which&#160;model&#160;is&#160;a&#160;good&#160;first&#160;fit?&#160;Which&#160;is&#160;a<br/>poor&#160;fit,&#160;and&#160;why?&#160;What&#160;is&#160;going&#160;wrong&#160;if&#160;the&#160;model&#160;does&#160;great&#160;in&#160;training&#160;and&#160;badly&#160;on&#160;new&#160;data?</p>
+<p style="position:absolute;top:274pt;left:47pt;white-space:nowrap" class="ft17"><b>Your&#160;4-step&#160;move&#160;on&#160;almost&#160;every&#160;question</b></p>
+<p style="position:absolute;top:292pt;left:49pt;white-space:nowrap" class="ft15">1.&#160;</p>
+<p style="position:absolute;top:292pt;left:60pt;white-space:nowrap" class="ft14"><b>Read&#160;the&#160;target.</b></p>
+<p style="position:absolute;top:292pt;left:136pt;white-space:nowrap" class="ft15">&#160;What&#160;are&#160;you&#160;predicting?&#160;A&#160;number,&#160;or&#160;a&#160;category?</p>
+<p style="position:absolute;top:310pt;left:49pt;white-space:nowrap" class="ft15">2.&#160;</p>
+<p style="position:absolute;top:310pt;left:60pt;white-space:nowrap" class="ft14"><b>Check&#160;the&#160;data&#160;setup.</b></p>
+<p style="position:absolute;top:310pt;left:164pt;white-space:nowrap" class="ft15">&#160;Is&#160;everything&#160;in&#160;a&#160;form&#160;a&#160;model&#160;can&#160;use&#160;-&#160;numbers,&#160;not&#160;raw&#160;text&#160;labels?&#160;Any&#160;missing</p>
+<p style="position:absolute;top:324pt;left:60pt;white-space:nowrap" class="ft15">values&#160;or&#160;wildly&#160;different&#160;scales&#160;to&#160;fix&#160;first?&#160;See&#160;page&#160;3.</p>
+<p style="position:absolute;top:341pt;left:49pt;white-space:nowrap" class="ft15">3.&#160;</p>
+<p style="position:absolute;top:341pt;left:60pt;white-space:nowrap" class="ft14"><b>Picture&#160;the&#160;data.</b></p>
+<p style="position:absolute;top:341pt;left:138pt;white-space:nowrap" class="ft15">&#160;How&#160;much&#160;data?&#160;Is&#160;the&#160;pattern&#160;likely&#160;a&#160;straight&#160;line,&#160;or&#160;tangled&#160;and&#160;non-linear?&#160;Do&#160;you&#160;need&#160;to</p>
+<p style="position:absolute;top:355pt;left:60pt;white-space:nowrap" class="ft15">explain&#160;the&#160;answer&#160;in&#160;plain&#160;words?</p>
+<p style="position:absolute;top:373pt;left:49pt;white-space:nowrap" class="ft15">4.&#160;</p>
+<p style="position:absolute;top:373pt;left:60pt;white-space:nowrap" class="ft14"><b>Match,&#160;then&#160;justify.</b></p>
+<p style="position:absolute;top:373pt;left:150pt;white-space:nowrap" class="ft15">&#160;Name&#160;a&#160;family,&#160;give&#160;one&#160;strength&#160;that&#160;fits,&#160;and&#160;name&#160;one&#160;limit&#160;you&#160;are&#160;accepting.</p>
+<p style="position:absolute;top:398pt;left:47pt;white-space:nowrap" class="ft17"><b>Learning&#160;from&#160;data&#160;-&#160;the&#160;core&#160;idea</b></p>
+<p style="position:absolute;top:417pt;left:47pt;white-space:nowrap" class="ft15">A&#160;machine&#160;learning&#160;model&#160;does&#160;not&#160;get&#160;handed&#160;the&#160;rules.&#160;It&#160;</p>
+<p style="position:absolute;top:417pt;left:311pt;white-space:nowrap" class="ft14"><b>learns&#160;a&#160;pattern&#160;from&#160;examples</b></p>
+<p style="position:absolute;top:417pt;left:459pt;white-space:nowrap" class="ft15">&#160;-&#160;rows&#160;of&#160;past&#160;data</p>
+<p style="position:absolute;top:431pt;left:47pt;white-space:nowrap" class="ft15">where&#160;the&#160;answer&#160;is&#160;already&#160;known&#160;-&#160;and&#160;then&#160;uses&#160;that&#160;pattern&#160;to&#160;predict&#160;answers&#160;for&#160;new&#160;cases&#160;it&#160;has&#160;never&#160;seen.</p>
+<p style="position:absolute;top:463pt;left:58pt;white-space:nowrap" class="ft18"><b>Features&#160;(inputs,&#160;X)</b></p>
+<p style="position:absolute;top:476pt;left:58pt;white-space:nowrap" class="ft111">The&#160;clues&#160;you&#160;give&#160;the&#160;model.&#160;Example:&#160;house&#160;size,<br/>bedrooms,&#160;neighborhood.</p>
+<p style="position:absolute;top:463pt;left:322pt;white-space:nowrap" class="ft18"><b>Target&#160;(label,&#160;y)</b></p>
+<p style="position:absolute;top:476pt;left:322pt;white-space:nowrap" class="ft111">The&#160;answer&#160;you&#160;want&#160;to&#160;predict.&#160;Example:&#160;the&#160;sale<br/>price&#160;of&#160;that&#160;house.</p>
+<p style="position:absolute;top:535pt;left:58pt;white-space:nowrap" class="ft18"><b>Training&#160;data</b></p>
+<p style="position:absolute;top:549pt;left:58pt;white-space:nowrap" class="ft15">Past&#160;examples&#160;</p>
+<p style="position:absolute;top:549pt;left:126pt;white-space:nowrap" class="ft16"><i>with</i></p>
+<p style="position:absolute;top:549pt;left:144pt;white-space:nowrap" class="ft15">&#160;answers.&#160;The&#160;model&#160;studies</p>
+<p style="position:absolute;top:563pt;left:58pt;white-space:nowrap" class="ft15">these&#160;to&#160;find&#160;the&#160;pattern.</p>
+<p style="position:absolute;top:535pt;left:322pt;white-space:nowrap" class="ft18"><b>Test&#160;data</b></p>
+<p style="position:absolute;top:549pt;left:322pt;white-space:nowrap" class="ft111">Examples&#160;held&#160;back,&#160;answers&#160;hidden&#160;from&#160;the<br/>model&#160;during&#160;training.&#160;This&#160;is&#160;how&#160;you&#160;check<br/>whether&#160;it&#160;really&#160;learned&#160;-&#160;or&#160;just&#160;memorized.</p>
+<p style="position:absolute;top:609pt;left:47pt;white-space:nowrap" class="ft14"><b>Supervised&#160;learning</b></p>
+<p style="position:absolute;top:609pt;left:142pt;white-space:nowrap" class="ft15">&#160;is&#160;the&#160;setting&#160;for&#160;this&#160;whole&#160;quiz:&#160;every&#160;training&#160;example&#160;comes&#160;with&#160;its&#160;correct&#160;answer,&#160;and&#160;the</p>
+<p style="position:absolute;top:623pt;left:47pt;white-space:nowrap" class="ft111">model&#160;learns&#160;to&#160;map&#160;features&#160;to&#160;that&#160;answer.&#160;If&#160;there&#160;were&#160;no&#160;answers&#160;to&#160;learn&#160;from,&#160;that&#160;would&#160;be&#160;unsupervised<br/>learning&#160;-&#160;a&#160;different&#160;job,&#160;and&#160;not&#160;the&#160;focus&#160;on&#160;Monday.</p>
+<p style="position:absolute;top:668pt;left:60pt;white-space:nowrap" class="ft14"><b>The&#160;one&#160;sentence&#160;to&#160;keep:</b></p>
+<p style="position:absolute;top:668pt;left:186pt;white-space:nowrap" class="ft15">&#160;A&#160;model&#160;is&#160;only&#160;good&#160;if&#160;it&#160;works&#160;on&#160;</p>
+<p style="position:absolute;top:668pt;left:341pt;white-space:nowrap" class="ft16"><i>new</i></p>
+<p style="position:absolute;top:668pt;left:360pt;white-space:nowrap" class="ft15">&#160;data,&#160;not&#160;just&#160;on&#160;the&#160;data&#160;it&#160;studied.&#160;That</p>
+<p style="position:absolute;top:682pt;left:60pt;white-space:nowrap" class="ft15">idea&#160;-&#160;called&#160;</p>
+<p style="position:absolute;top:682pt;left:117pt;white-space:nowrap" class="ft14"><b>generalization</b></p>
+<p style="position:absolute;top:682pt;left:184pt;white-space:nowrap" class="ft15">&#160;-&#160;is&#160;behind&#160;half&#160;the&#160;quiz.</p>
+<p style="position:absolute;top:752pt;left:545pt;white-space:nowrap" class="ft19">1&#160;/&#160;7</p>
+</div></section>
+<style type="text/css">
+<!--
+		.ft20{font-size:16pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft21{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft22{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft23{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft24{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft25{font-size:11pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft26{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#152538;}
+	.ft27{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft28{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft29{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#4a5c74;}
+	.ft210{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#6a7990;}
+	.ft211{font-size:10pt;line-height:14pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft212{font-size:9pt;line-height:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft213{font-size:9pt;line-height:13pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft214{font-size:9pt;line-height:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#4a5c74;}
+-->
+</style><section class="page bob"><div id="page2-div" style="position:relative;width:612pt;height:792pt;">
+<p style="position:absolute;top:36pt;left:47pt;white-space:nowrap" class="ft20"><b>Too&#160;simple,&#160;too&#160;memorized,&#160;just&#160;right</b></p>
+<p style="position:absolute;top:68pt;left:47pt;white-space:nowrap" class="ft211">Every&#160;model&#160;sits&#160;somewhere&#160;on&#160;one&#160;spectrum.&#160;Learn&#160;to&#160;spot&#160;where&#160;-&#160;from&#160;the&#160;training&#160;score&#160;and&#160;the&#160;test&#160;score&#160;-&#160;and<br/>you&#160;can&#160;answer&#160;most&#160;overfitting&#160;questions&#160;without&#160;any&#160;math.</p>
+<p style="position:absolute;top:113pt;left:58pt;white-space:nowrap" class="ft22"><b>Underfitting&#160;-&#160;too&#160;simple</b></p>
+<p style="position:absolute;top:127pt;left:58pt;white-space:nowrap" class="ft211">The&#160;model&#160;misses&#160;the&#160;real&#160;pattern.&#160;It&#160;does&#160;poorly&#160;on<br/>training&#160;data&#160;</p>
+<p style="position:absolute;top:142pt;left:116pt;white-space:nowrap" class="ft23"><i>and</i></p>
+<p style="position:absolute;top:142pt;left:133pt;white-space:nowrap" class="ft21">&#160;poorly&#160;on&#160;test&#160;data.</p>
+<p style="position:absolute;top:156pt;left:58pt;white-space:nowrap" class="ft23"><i>Example:</i></p>
+<p style="position:absolute;top:156pt;left:100pt;white-space:nowrap" class="ft21">&#160;fitting&#160;a&#160;straight&#160;line&#160;to&#160;a&#160;pattern&#160;that</p>
+<p style="position:absolute;top:170pt;left:58pt;white-space:nowrap" class="ft21">clearly&#160;curves.</p>
+<p style="position:absolute;top:184pt;left:58pt;white-space:nowrap" class="ft23"><i>Fix&#160;direction:</i></p>
+<p style="position:absolute;top:184pt;left:115pt;white-space:nowrap" class="ft21">&#160;a&#160;more&#160;flexible&#160;model,&#160;or&#160;better</p>
+<p style="position:absolute;top:199pt;left:58pt;white-space:nowrap" class="ft21">features.</p>
+<p style="position:absolute;top:113pt;left:322pt;white-space:nowrap" class="ft22"><b>Overfitting&#160;-&#160;memorized,&#160;not&#160;learned</b></p>
+<p style="position:absolute;top:127pt;left:322pt;white-space:nowrap" class="ft211">The&#160;model&#160;fits&#160;the&#160;training&#160;data&#160;almost&#160;perfectly&#160;-<br/>including&#160;its&#160;noise&#160;and&#160;quirks&#160;-&#160;then&#160;falls&#160;apart&#160;on<br/>new&#160;data.</p>
+<p style="position:absolute;top:170pt;left:322pt;white-space:nowrap" class="ft23"><i>Tell-tale&#160;sign:</i></p>
+<p style="position:absolute;top:170pt;left:381pt;white-space:nowrap" class="ft21">&#160;</p>
+<p style="position:absolute;top:170pt;left:384pt;white-space:nowrap" class="ft24"><b>great&#160;training&#160;score,&#160;much&#160;worse</b></p>
+<p style="position:absolute;top:184pt;left:322pt;white-space:nowrap" class="ft24"><b>test&#160;score.</b></p>
+<p style="position:absolute;top:199pt;left:322pt;white-space:nowrap" class="ft23"><i>Fix&#160;direction:</i></p>
+<p style="position:absolute;top:199pt;left:379pt;white-space:nowrap" class="ft21">&#160;a&#160;simpler&#160;model,&#160;more&#160;training&#160;data,&#160;or</p>
+<p style="position:absolute;top:213pt;left:322pt;white-space:nowrap" class="ft21">regular&#160;checks&#160;on&#160;held-out&#160;data.</p>
+<p style="position:absolute;top:253pt;left:60pt;white-space:nowrap" class="ft24"><b>Just&#160;right&#160;=&#160;generalizes.</b></p>
+<p style="position:absolute;top:253pt;left:174pt;white-space:nowrap" class="ft21">&#160;Training&#160;and&#160;test&#160;scores&#160;are&#160;reasonably&#160;close,&#160;and&#160;both&#160;are&#160;decent.&#160;The&#160;model</p>
+<p style="position:absolute;top:268pt;left:60pt;white-space:nowrap" class="ft21">captured&#160;the&#160;pattern,&#160;not&#160;the&#160;noise.&#160;Perfect&#160;training&#160;accuracy&#160;is&#160;a&#160;warning&#160;sign,&#160;not&#160;a&#160;trophy.</p>
+<p style="position:absolute;top:300pt;left:47pt;white-space:nowrap" class="ft25"><b>Bias&#160;and&#160;variance&#160;-&#160;the&#160;same&#160;story,&#160;in&#160;quiz&#160;language</b></p>
+<p style="position:absolute;top:319pt;left:60pt;white-space:nowrap" class="ft24"><b>High&#160;bias</b></p>
+<p style="position:absolute;top:319pt;left:105pt;white-space:nowrap" class="ft21">&#160;goes&#160;with&#160;underfitting:&#160;the&#160;model&#160;is&#160;too&#160;rigid&#160;and&#160;keeps&#160;making&#160;the&#160;same&#160;kind&#160;of&#160;mistake.</p>
+<p style="position:absolute;top:336pt;left:60pt;white-space:nowrap" class="ft24"><b>High&#160;variance</b></p>
+<p style="position:absolute;top:336pt;left:126pt;white-space:nowrap" class="ft21">&#160;goes&#160;with&#160;overfitting:&#160;the&#160;model&#160;is&#160;too&#160;sensitive,&#160;and&#160;small&#160;changes&#160;in&#160;the&#160;training&#160;data&#160;swing&#160;its</p>
+<p style="position:absolute;top:350pt;left:60pt;white-space:nowrap" class="ft21">answers&#160;a&#160;lot.</p>
+<p style="position:absolute;top:367pt;left:60pt;white-space:nowrap" class="ft21">There&#160;is&#160;a&#160;</p>
+<p style="position:absolute;top:367pt;left:108pt;white-space:nowrap" class="ft24"><b>trade-off</b></p>
+<p style="position:absolute;top:367pt;left:148pt;white-space:nowrap" class="ft21">:&#160;making&#160;a&#160;model&#160;more&#160;flexible&#160;usually&#160;lowers&#160;bias&#160;but&#160;raises&#160;variance.&#160;The&#160;goal&#160;is&#160;the</p>
+<p style="position:absolute;top:382pt;left:60pt;white-space:nowrap" class="ft21">balance&#160;in&#160;the&#160;middle,&#160;not&#160;either&#160;extreme.</p>
+<p style="position:absolute;top:407pt;left:47pt;white-space:nowrap" class="ft25"><b>Why&#160;we&#160;split&#160;the&#160;data</b></p>
+<p style="position:absolute;top:426pt;left:47pt;white-space:nowrap" class="ft21">If&#160;you&#160;judge&#160;a&#160;model&#160;only&#160;on&#160;the&#160;data&#160;it&#160;trained&#160;on,&#160;an&#160;overfit&#160;model&#160;looks&#160;like&#160;the&#160;best&#160;model.&#160;Splitting&#160;data&#160;into&#160;a</p>
+<p style="position:absolute;top:440pt;left:47pt;white-space:nowrap" class="ft24"><b>training&#160;set</b></p>
+<p style="position:absolute;top:440pt;left:101pt;white-space:nowrap" class="ft21">&#160;and&#160;a&#160;separate&#160;</p>
+<p style="position:absolute;top:440pt;left:173pt;white-space:nowrap" class="ft24"><b>test&#160;set</b></p>
+<p style="position:absolute;top:440pt;left:208pt;white-space:nowrap" class="ft21">&#160;is&#160;what&#160;exposes&#160;that.&#160;A&#160;validation&#160;set,&#160;when&#160;used,&#160;sits&#160;in&#160;between:&#160;you&#160;tune</p>
+<p style="position:absolute;top:454pt;left:47pt;white-space:nowrap" class="ft21">choices&#160;on&#160;it,&#160;and&#160;keep&#160;the&#160;test&#160;set&#160;untouched&#160;for&#160;the&#160;final&#160;honest&#160;check.</p>
+<p style="position:absolute;top:479pt;left:47pt;white-space:nowrap" class="ft25"><b>Regression&#160;or&#160;classification?&#160;Read&#160;the&#160;target&#160;first</b></p>
+<p style="position:absolute;top:508pt;left:53pt;white-space:nowrap" class="ft26"><b>Question</b></p>
+<p style="position:absolute;top:508pt;left:167pt;white-space:nowrap" class="ft26"><b>Regression</b></p>
+<p style="position:absolute;top:508pt;left:368pt;white-space:nowrap" class="ft26"><b>Classification</b></p>
+<p style="position:absolute;top:532pt;left:53pt;white-space:nowrap" class="ft27"><b>Target&#160;is...</b></p>
+<p style="position:absolute;top:532pt;left:167pt;white-space:nowrap" class="ft28">A&#160;number&#160;on&#160;a&#160;scale</p>
+<p style="position:absolute;top:532pt;left:368pt;white-space:nowrap" class="ft28">A&#160;category&#160;or&#160;label</p>
+<p style="position:absolute;top:556pt;left:53pt;white-space:nowrap" class="ft27"><b>Examples</b></p>
+<p style="position:absolute;top:556pt;left:167pt;white-space:nowrap" class="ft212">Price,&#160;temperature,&#160;delivery&#160;time,&#160;exam<br/>score,&#160;demand&#160;next&#160;week</p>
+<p style="position:absolute;top:556pt;left:368pt;white-space:nowrap" class="ft212">Spam&#160;/&#160;not&#160;spam,&#160;pass&#160;/&#160;fail,&#160;disease&#160;/&#160;no<br/>disease,&#160;which&#160;species</p>
+<p style="position:absolute;top:594pt;left:53pt;white-space:nowrap" class="ft27"><b>Answer&#160;looks&#160;like</b></p>
+<p style="position:absolute;top:594pt;left:167pt;white-space:nowrap" class="ft212">&#34;About&#160;$242,000&#34;&#160;-&#160;and&#160;it&#160;can&#160;be&#160;off&#160;by&#160;a&#160;little<br/>or&#160;a&#160;lot</p>
+<p style="position:absolute;top:594pt;left:368pt;white-space:nowrap" class="ft28">&#34;Spam&#34;&#160;-&#160;it&#160;is&#160;either&#160;right&#160;or&#160;wrong</p>
+<p style="position:absolute;top:631pt;left:53pt;white-space:nowrap" class="ft27"><b>Watch&#160;out</b></p>
+<p style="position:absolute;top:631pt;left:167pt;white-space:nowrap" class="ft213">Numbers&#160;can&#160;still&#160;be&#160;categories.&#160;A&#160;zip&#160;code&#160;or&#160;a&#160;jersey&#160;number&#160;is&#160;stored&#160;as&#160;digits&#160;but&#160;is&#160;really&#160;a<br/>label.&#160;Ask:&#160;does&#160;&#34;twice&#160;as&#160;big&#34;&#160;actually&#160;mean&#160;something?&#160;If&#160;not,&#160;treat&#160;it&#160;as&#160;classification.</p>
+<p style="position:absolute;top:671pt;left:47pt;white-space:nowrap" class="ft214">Some families do both jobs - decision trees, random forests, and support vector machines (SVMs) each have regression and<br/>classification versions. Linear regression, despite the confusing family resemblance, is for number targets; its classification cousin<br/>is logistic regression.</p>
+<p style="position:absolute;top:752pt;left:545pt;white-space:nowrap" class="ft210">2&#160;/&#160;7</p>
+</div></section>
+<style type="text/css">
+<!--
+		.ft30{font-size:16pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft31{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft32{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft33{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft34{font-size:11pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft35{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#152538;}
+	.ft36{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft37{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft38{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#4a5c74;}
+	.ft39{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#4a5c74;}
+	.ft310{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft311{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#6a7990;}
+	.ft312{font-size:10pt;line-height:14pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+-->
+</style><section class="page bob"><div id="page3-div" style="position:relative;width:612pt;height:792pt;">
+<p style="position:absolute;top:30pt;left:47pt;white-space:nowrap" class="ft30"><b>Is&#160;the&#160;data&#160;set&#160;up&#160;for&#160;machine&#160;learning?</b></p>
+<p style="position:absolute;top:62pt;left:47pt;white-space:nowrap" class="ft312">Picking&#160;a&#160;model&#160;comes&#160;second.&#160;First&#160;ask&#160;whether&#160;the&#160;data&#160;can&#160;be&#160;fed&#160;to&#160;a&#160;model&#160;at&#160;all.&#160;Models&#160;do&#160;arithmetic,&#160;so&#160;they<br/>need&#160;</p>
+<p style="position:absolute;top:76pt;left:72pt;white-space:nowrap" class="ft32"><b>numbers&#160;in&#160;a&#160;clean&#160;table</b></p>
+<p style="position:absolute;top:76pt;left:188pt;white-space:nowrap" class="ft31">&#160;-&#160;one&#160;row&#160;per&#160;example,&#160;one&#160;column&#160;per&#160;feature,&#160;a&#160;clear&#160;target.&#160;Text&#160;labels,&#160;blanks,</p>
+<p style="position:absolute;top:91pt;left:47pt;white-space:nowrap" class="ft31">and&#160;wildly&#160;different&#160;scales&#160;must&#160;be&#160;dealt&#160;with&#160;</p>
+<p style="position:absolute;top:91pt;left:247pt;white-space:nowrap" class="ft33"><i>before</i></p>
+<p style="position:absolute;top:91pt;left:275pt;white-space:nowrap" class="ft31">&#160;training.</p>
+<p style="position:absolute;top:116pt;left:47pt;white-space:nowrap" class="ft34"><b>Categorical&#160;data:&#160;labels&#160;are&#160;not&#160;numbers</b></p>
+<p style="position:absolute;top:134pt;left:47pt;white-space:nowrap" class="ft31">A&#160;</p>
+<p style="position:absolute;top:134pt;left:56pt;white-space:nowrap" class="ft32"><b>categorical</b></p>
+<p style="position:absolute;top:134pt;left:108pt;white-space:nowrap" class="ft31">&#160;feature&#160;takes&#160;values&#160;from&#160;named&#160;groups,&#160;not&#160;a&#160;number&#160;scale:&#160;neighborhood&#160;(Downtown,&#160;Suburb,</p>
+<p style="position:absolute;top:148pt;left:47pt;white-space:nowrap" class="ft31">Rural),&#160;color,&#160;payment&#160;type&#160;-&#160;and&#160;zip&#160;code,&#160;even&#160;though&#160;it&#160;is&#160;written&#160;with&#160;digits.</p>
+<p style="position:absolute;top:179pt;left:60pt;white-space:nowrap" class="ft32"><b>Why&#160;you&#160;cannot&#160;just&#160;number&#160;them&#160;1,&#160;2,&#160;3:</b></p>
+<p style="position:absolute;top:179pt;left:258pt;white-space:nowrap" class="ft31">&#160;If&#160;Downtown&#160;=&#160;1,&#160;Suburb&#160;=&#160;2,&#160;and&#160;Rural&#160;=&#160;3,&#160;the&#160;model&#160;reads&#160;that</p>
+<p style="position:absolute;top:193pt;left:60pt;white-space:nowrap" class="ft312">as&#160;math&#160;-&#160;as&#160;if&#160;Rural&#160;were&#160;&#34;three&#160;times&#34;&#160;Downtown,&#160;and&#160;Suburb&#160;sat&#160;halfway&#160;between&#160;them.&#160;There&#160;is&#160;no&#160;such<br/>order&#160;-&#160;you&#160;have&#160;invented&#160;a&#160;pattern&#160;that&#160;is&#160;not&#160;in&#160;the&#160;data.</p>
+<p style="position:absolute;top:240pt;left:47pt;white-space:nowrap" class="ft34"><b>One-hot&#160;encoding:&#160;one&#160;column&#160;per&#160;category</b></p>
+<p style="position:absolute;top:259pt;left:47pt;white-space:nowrap" class="ft32"><b>One-hot&#160;encoding</b></p>
+<p style="position:absolute;top:259pt;left:132pt;white-space:nowrap" class="ft31">&#160;fixes&#160;this.&#160;Replace&#160;the&#160;single&#160;categorical&#160;column&#160;with&#160;</p>
+<p style="position:absolute;top:259pt;left:371pt;white-space:nowrap" class="ft32"><b>one&#160;new&#160;column&#160;for&#160;each&#160;category</b></p>
+<p style="position:absolute;top:259pt;left:536pt;white-space:nowrap" class="ft31">.&#160;Each</p>
+<p style="position:absolute;top:274pt;left:47pt;white-space:nowrap" class="ft31">row&#160;gets&#160;a&#160;</p>
+<p style="position:absolute;top:274pt;left:96pt;white-space:nowrap" class="ft32"><b>1</b></p>
+<p style="position:absolute;top:274pt;left:101pt;white-space:nowrap" class="ft31">&#160;in&#160;the&#160;column&#160;for&#160;its&#160;own&#160;category&#160;and&#160;a&#160;</p>
+<p style="position:absolute;top:274pt;left:284pt;white-space:nowrap" class="ft32"><b>0</b></p>
+<p style="position:absolute;top:274pt;left:289pt;white-space:nowrap" class="ft31">&#160;in&#160;all&#160;the&#160;others.&#160;No&#160;order&#160;is&#160;implied,&#160;and&#160;every&#160;value&#160;is&#160;now&#160;a</p>
+<p style="position:absolute;top:288pt;left:47pt;white-space:nowrap" class="ft31">number&#160;a&#160;model&#160;can&#160;use.</p>
+<p style="position:absolute;top:315pt;left:53pt;white-space:nowrap" class="ft35"><b>House</b></p>
+<p style="position:absolute;top:315pt;left:113pt;white-space:nowrap" class="ft35"><b>Neighborhood&#160;(original)</b></p>
+<p style="position:absolute;top:315pt;left:290pt;white-space:nowrap" class="ft35"><b>Is&#160;Downtown?</b></p>
+<p style="position:absolute;top:315pt;left:403pt;white-space:nowrap" class="ft35"><b>Is&#160;Suburb?</b></p>
+<p style="position:absolute;top:315pt;left:494pt;white-space:nowrap" class="ft35"><b>Is&#160;Rural?</b></p>
+<p style="position:absolute;top:338pt;left:53pt;white-space:nowrap" class="ft36">A</p>
+<p style="position:absolute;top:338pt;left:113pt;white-space:nowrap" class="ft36">Downtown</p>
+<p style="position:absolute;top:338pt;left:290pt;white-space:nowrap" class="ft37"><b>1</b></p>
+<p style="position:absolute;top:338pt;left:403pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:338pt;left:494pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:363pt;left:53pt;white-space:nowrap" class="ft36">B</p>
+<p style="position:absolute;top:363pt;left:113pt;white-space:nowrap" class="ft36">Rural</p>
+<p style="position:absolute;top:363pt;left:290pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:363pt;left:403pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:363pt;left:494pt;white-space:nowrap" class="ft37"><b>1</b></p>
+<p style="position:absolute;top:387pt;left:53pt;white-space:nowrap" class="ft36">C</p>
+<p style="position:absolute;top:387pt;left:113pt;white-space:nowrap" class="ft36">Suburb</p>
+<p style="position:absolute;top:387pt;left:290pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:387pt;left:403pt;white-space:nowrap" class="ft37"><b>1</b></p>
+<p style="position:absolute;top:387pt;left:494pt;white-space:nowrap" class="ft36">0</p>
+<p style="position:absolute;top:414pt;left:47pt;white-space:nowrap" class="ft38">Read row B as: &#34;Not Downtown, not Suburb, yes Rural.&#34;&#160;Three categories became three columns. In general, a feature with&#160;</p>
+<p style="position:absolute;top:414pt;left:540pt;white-space:nowrap" class="ft39"><i>k</i></p>
+<p style="position:absolute;top:427pt;left:47pt;white-space:nowrap" class="ft38">categories becomes&#160;</p>
+<p style="position:absolute;top:427pt;left:130pt;white-space:nowrap" class="ft39"><i>k</i></p>
+<p style="position:absolute;top:427pt;left:134pt;white-space:nowrap" class="ft38">&#160;new 0/1 columns.</p>
+<p style="position:absolute;top:456pt;left:60pt;white-space:nowrap" class="ft32"><b>Quiz&#160;cue:</b></p>
+<p style="position:absolute;top:456pt;left:105pt;white-space:nowrap" class="ft31">&#160;If&#160;a&#160;scenario&#160;hands&#160;a&#160;model&#160;a&#160;raw&#160;text&#160;column&#160;-&#160;color&#160;names,&#160;city&#160;names,&#160;product&#160;types&#160;-&#160;the&#160;answer</p>
+<p style="position:absolute;top:470pt;left:60pt;white-space:nowrap" class="ft31">it&#160;wants&#160;is&#160;usually:&#160;</p>
+<p style="position:absolute;top:470pt;left:144pt;white-space:nowrap" class="ft33"><i>not&#160;ready&#160;yet;&#160;encode&#160;it&#160;first,&#160;for&#160;example&#160;with&#160;one-hot&#160;encoding.</i></p>
+<p style="position:absolute;top:470pt;left:428pt;white-space:nowrap" class="ft31">&#160;One&#160;limit:&#160;very&#160;many</p>
+<p style="position:absolute;top:484pt;left:60pt;white-space:nowrap" class="ft312">categories&#160;(thousands&#160;of&#160;zip&#160;codes)&#160;creates&#160;thousands&#160;of&#160;columns,&#160;so&#160;one-hot&#160;works&#160;best&#160;when&#160;the&#160;count&#160;is<br/>modest.</p>
+<p style="position:absolute;top:531pt;left:47pt;white-space:nowrap" class="ft34"><b>The&#160;rest&#160;of&#160;the&#160;readiness&#160;check</b></p>
+<p style="position:absolute;top:565pt;left:58pt;white-space:nowrap" class="ft310"><b>Missing&#160;values</b></p>
+<p style="position:absolute;top:578pt;left:58pt;white-space:nowrap" class="ft312">Blanks&#160;are&#160;not&#160;zeros.&#160;Fill&#160;them&#160;sensibly,&#160;or&#160;drop<br/>those&#160;rows&#160;or&#160;columns&#160;-&#160;and&#160;say&#160;which&#160;you&#160;did&#160;and<br/>why.</p>
+<p style="position:absolute;top:565pt;left:322pt;white-space:nowrap" class="ft310"><b>Very&#160;different&#160;scales</b></p>
+<p style="position:absolute;top:578pt;left:322pt;white-space:nowrap" class="ft312">Age&#160;is&#160;roughly&#160;0-100;&#160;income&#160;is&#160;in&#160;the&#160;tens&#160;of<br/>thousands.&#160;Left&#160;as-is,&#160;the&#160;big&#160;feature&#160;can&#160;drown&#160;out<br/>the&#160;small&#160;one,&#160;especially&#160;for&#160;k-NN&#160;and&#160;SVMs.&#160;Put<br/>features&#160;on&#160;comparable&#160;scales.</p>
+<p style="position:absolute;top:665pt;left:58pt;white-space:nowrap" class="ft310"><b>A&#160;present,&#160;clean&#160;target</b></p>
+<p style="position:absolute;top:679pt;left:58pt;white-space:nowrap" class="ft312">Training&#160;rows&#160;need&#160;a&#160;known,&#160;correct&#160;target.&#160;If&#160;it&#160;is<br/>missing&#160;or&#160;inconsistent,&#160;the&#160;model&#160;learns&#160;the&#160;mess,<br/>not&#160;the&#160;pattern.</p>
+<p style="position:absolute;top:665pt;left:322pt;white-space:nowrap" class="ft310"><b>Same&#160;setup&#160;for&#160;train&#160;and&#160;test</b></p>
+<p style="position:absolute;top:679pt;left:322pt;white-space:nowrap" class="ft312">Prepare&#160;new&#160;data&#160;exactly&#160;as&#160;you&#160;prepared&#160;training<br/>data&#160;-&#160;same&#160;columns,&#160;categories,&#160;and&#160;scales.</p>
+
+
+
+
+<p style="position:absolute;top:752pt;left:545pt;white-space:nowrap" class="ft311">3&#160;/&#160;7</p>
+<p style="position:absolute;top:731pt;left:47pt;width:518pt;font:10pt/13pt Arial;white-space:normal"><b>Order matters:</b> choose features and target; split; fit scaling and other learned preparation on training data only; apply that setup to test data; train and judge.</p></div></section>
+<style type="text/css">
+<!--
+		.ft40{font-size:16pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft41{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft42{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft43{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#152538;}
+	.ft44{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft45{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft46{font-size:11pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft47{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft48{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#6a7990;}
+	.ft49{font-size:10pt;line-height:14pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft410{font-size:9pt;line-height:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft411{font-size:9pt;line-height:13pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft412{font-size:10pt;line-height:13pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+-->
+</style><section class="page bob"><div id="page4-div" style="position:relative;width:612pt;height:792pt;">
+<p style="position:absolute;top:36pt;left:47pt;white-space:nowrap" class="ft40"><b>Where&#160;data&#160;lives:&#160;lakes,&#160;warehouses,&#160;and&#160;lakehouses</b></p>
+<p style="position:absolute;top:68pt;left:47pt;white-space:nowrap" class="ft49">Before&#160;data&#160;is&#160;ready&#160;for&#160;a&#160;model&#160;or&#160;a&#160;report,&#160;it&#160;has&#160;to&#160;live&#160;somewhere.&#160;At&#160;a&#160;high&#160;level,&#160;there&#160;are&#160;three&#160;common&#160;homes<br/>-&#160;and&#160;the&#160;quiz&#160;only&#160;asks&#160;you&#160;to&#160;tell&#160;them&#160;apart&#160;by&#160;</p>
+<p style="position:absolute;top:82pt;left:264pt;white-space:nowrap" class="ft42"><b>how&#160;raw&#160;or&#160;ready&#160;the&#160;data&#160;is</b></p>
+<p style="position:absolute;top:82pt;left:398pt;white-space:nowrap" class="ft41">&#160;and&#160;</p>
+<p style="position:absolute;top:82pt;left:421pt;white-space:nowrap" class="ft42"><b>what&#160;it&#160;is&#160;mainly&#160;for</b></p>
+<p style="position:absolute;top:82pt;left:514pt;white-space:nowrap" class="ft41">.</p>
+<p style="position:absolute;top:109pt;left:53pt;white-space:nowrap" class="ft43"><b>Home</b></p>
+<p style="position:absolute;top:109pt;left:156pt;white-space:nowrap" class="ft43"><b>In&#160;one&#160;line</b></p>
+<p style="position:absolute;top:109pt;left:364pt;white-space:nowrap" class="ft43"><b>Watch&#160;out&#160;/&#160;fits&#160;when</b></p>
+<p style="position:absolute;top:133pt;left:53pt;white-space:nowrap" class="ft44"><b>Data&#160;lake</b></p>
+<p style="position:absolute;top:133pt;left:156pt;white-space:nowrap" class="ft45">Stores&#160;huge&#160;amounts&#160;of&#160;</p>
+<p style="position:absolute;top:133pt;left:258pt;white-space:nowrap" class="ft44"><b>raw</b></p>
+<p style="position:absolute;top:133pt;left:274pt;white-space:nowrap" class="ft45">&#160;data&#160;in&#160;its&#160;original</p>
+<p style="position:absolute;top:146pt;left:156pt;white-space:nowrap" class="ft411">form&#160;-&#160;structured&#160;tables,&#160;text,&#160;images,&#160;logs,<br/>anything.&#160;Structure&#160;is&#160;decided&#160;later,&#160;when<br/>someone&#160;uses&#160;it.</p>
+<p style="position:absolute;top:133pt;left:364pt;white-space:nowrap" class="ft410">Cheap&#160;and&#160;flexible,&#160;good&#160;for&#160;storing&#160;everything<br/>first.&#160;Risk:&#160;without&#160;care&#160;it&#160;becomes&#160;a&#160;messy<br/>&#34;data&#160;swamp&#34;&#160;that&#160;is&#160;hard&#160;to&#160;find&#160;or&#160;trust.</p>
+<p style="position:absolute;top:196pt;left:53pt;white-space:nowrap" class="ft44"><b>Data&#160;warehouse</b></p>
+<p style="position:absolute;top:196pt;left:156pt;white-space:nowrap" class="ft45">Stores&#160;</p>
+<p style="position:absolute;top:196pt;left:186pt;white-space:nowrap" class="ft44"><b>cleaned,&#160;structured</b></p>
+<p style="position:absolute;top:196pt;left:272pt;white-space:nowrap" class="ft45">&#160;data&#160;that&#160;has</p>
+<p style="position:absolute;top:210pt;left:156pt;white-space:nowrap" class="ft410">already&#160;been&#160;organized&#160;for&#160;analysis&#160;-&#160;usually<br/>business&#160;reporting&#160;and&#160;queries.&#160;Structure&#160;is<br/>decided&#160;up&#160;front,&#160;before&#160;data&#160;goes&#160;in.</p>
+<p style="position:absolute;top:196pt;left:364pt;white-space:nowrap" class="ft411">Fast,&#160;trusted&#160;answers&#160;to&#160;known&#160;questions.<br/>Less&#160;flexible:&#160;raw&#160;or&#160;unusual&#160;data&#160;does&#160;not&#160;fit<br/>until&#160;it&#160;has&#160;been&#160;cleaned&#160;and&#160;shaped.</p>
+<p style="position:absolute;top:261pt;left:53pt;white-space:nowrap" class="ft44"><b>Data&#160;lakehouse</b></p>
+<p style="position:absolute;top:261pt;left:156pt;white-space:nowrap" class="ft45">Tries&#160;to&#160;</p>
+<p style="position:absolute;top:261pt;left:190pt;white-space:nowrap" class="ft44"><b>combine&#160;both</b></p>
+<p style="position:absolute;top:261pt;left:251pt;white-space:nowrap" class="ft45">:&#160;keep&#160;raw,&#160;flexible&#160;lake</p>
+<p style="position:absolute;top:274pt;left:156pt;white-space:nowrap" class="ft410">storage,&#160;and&#160;add&#160;warehouse-style&#160;organization<br/>and&#160;reliability&#160;on&#160;top&#160;of&#160;the&#160;same&#160;data.</p>
+<p style="position:absolute;top:261pt;left:364pt;white-space:nowrap" class="ft411">Fits&#160;teams&#160;that&#160;want&#160;one&#160;home&#160;for&#160;both&#160;raw<br/>data&#160;/&#160;machine&#160;learning&#160;work&#160;and&#160;clean<br/>reporting,&#160;instead&#160;of&#160;keeping&#160;two&#160;separate<br/>systems.</p>
+<p style="position:absolute;top:336pt;left:60pt;white-space:nowrap" class="ft42"><b>The&#160;one&#160;contrast&#160;to&#160;keep:</b></p>
+<p style="position:absolute;top:336pt;left:182pt;white-space:nowrap" class="ft41">&#160;Lake&#160;=&#160;raw&#160;first,&#160;organize&#160;later.&#160;Warehouse&#160;=&#160;organize&#160;first,&#160;then&#160;store&#160;ready&#160;to</p>
+<p style="position:absolute;top:350pt;left:60pt;white-space:nowrap" class="ft41">query.&#160;Lakehouse&#160;=&#160;lake&#160;storage&#160;with&#160;warehouse&#160;discipline&#160;added.</p>
+<p style="position:absolute;top:383pt;left:47pt;white-space:nowrap" class="ft46"><b>Star&#160;schema:&#160;how&#160;a&#160;warehouse&#160;is&#160;often&#160;organized</b></p>
+<p style="position:absolute;top:402pt;left:47pt;white-space:nowrap" class="ft41">A&#160;</p>
+<p style="position:absolute;top:402pt;left:56pt;white-space:nowrap" class="ft42"><b>star&#160;schema</b></p>
+<p style="position:absolute;top:402pt;left:114pt;white-space:nowrap" class="ft41">&#160;is&#160;a&#160;simple&#160;layout&#160;for&#160;warehouse&#160;data.&#160;Picture&#160;a&#160;star:</p>
+<p style="position:absolute;top:422pt;left:60pt;white-space:nowrap" class="ft42"><b>In&#160;the&#160;center:&#160;a&#160;fact&#160;table.</b></p>
+<p style="position:absolute;top:422pt;left:181pt;white-space:nowrap" class="ft41">&#160;One&#160;row&#160;per&#160;measurable&#160;event&#160;-&#160;for&#160;example,&#160;one&#160;sale&#160;-&#160;with&#160;the&#160;numbers&#160;you&#160;add&#160;up</p>
+<p style="position:absolute;top:436pt;left:60pt;white-space:nowrap" class="ft41">or&#160;average:&#160;amount,&#160;quantity,&#160;discount.</p>
+<p style="position:absolute;top:454pt;left:60pt;white-space:nowrap" class="ft42"><b>Around&#160;it:&#160;dimension&#160;tables.</b></p>
+<p style="position:absolute;top:454pt;left:195pt;white-space:nowrap" class="ft41">&#160;The&#160;context&#160;for&#160;each&#160;fact:&#160;</p>
+<p style="position:absolute;top:454pt;left:313pt;white-space:nowrap" class="ft47"><i>when</i></p>
+<p style="position:absolute;top:454pt;left:337pt;white-space:nowrap" class="ft41">&#160;(date),&#160;</p>
+<p style="position:absolute;top:454pt;left:372pt;white-space:nowrap" class="ft47"><i>what</i></p>
+<p style="position:absolute;top:454pt;left:393pt;white-space:nowrap" class="ft41">&#160;(product),&#160;</p>
+<p style="position:absolute;top:454pt;left:441pt;white-space:nowrap" class="ft47"><i>where</i></p>
+<p style="position:absolute;top:454pt;left:468pt;white-space:nowrap" class="ft41">&#160;(store),&#160;</p>
+<p style="position:absolute;top:454pt;left:506pt;white-space:nowrap" class="ft47"><i>who</i></p>
+<p style="position:absolute;top:468pt;left:60pt;white-space:nowrap" class="ft41">(customer).&#160;Each&#160;dimension&#160;links&#160;directly&#160;to&#160;the&#160;fact&#160;table.</p>
+<p style="position:absolute;top:488pt;left:47pt;white-space:nowrap" class="ft412">That&#160;direct&#160;center-and-points&#160;shape&#160;is&#160;why&#160;it&#160;is&#160;called&#160;a&#160;star.&#160;It&#160;keeps&#160;queries&#160;simple&#160;and&#160;fast:&#160;start&#160;from&#160;the&#160;facts,<br/>then&#160;filter&#160;or&#160;group&#160;by&#160;any&#160;dimension&#160;-&#160;&#34;total&#160;sales&#160;amount&#160;[fact]&#160;by&#160;month&#160;and&#160;store&#160;[dimensions].&#34;&#160;No&#160;internals<br/>needed:&#160;</p>
+<p style="position:absolute;top:516pt;left:86pt;white-space:nowrap" class="ft42"><b>facts&#160;are&#160;the&#160;numbers&#160;you&#160;measure;&#160;dimensions&#160;are&#160;the&#160;context&#160;you&#160;slice&#160;them&#160;by.</b></p>
+<p style="position:absolute;top:541pt;left:47pt;white-space:nowrap" class="ft46"><b>Quick&#160;check&#160;-&#160;answers&#160;below</b></p>
+<p style="position:absolute;top:568pt;left:57pt;white-space:nowrap" class="ft42"><b>A.</b></p>
+<p style="position:absolute;top:568pt;left:67pt;white-space:nowrap" class="ft41">&#160;A&#160;company&#160;dumps&#160;raw&#160;logs,&#160;photos,&#160;and&#160;tables&#160;in&#160;cheap&#160;storage&#160;to&#160;sort&#160;out&#160;later.&#160;Lake,&#160;warehouse,&#160;or</p>
+<p style="position:absolute;top:582pt;left:57pt;white-space:nowrap" class="ft41">lakehouse?</p>
+<p style="position:absolute;top:616pt;left:57pt;white-space:nowrap" class="ft42"><b>B.</b></p>
+<p style="position:absolute;top:616pt;left:67pt;white-space:nowrap" class="ft41">&#160;Analysts&#160;run&#160;trusted&#160;daily&#160;reports&#160;from&#160;cleaned&#160;sales&#160;tables&#160;organized&#160;up&#160;front.&#160;Lake,&#160;warehouse,&#160;or</p>
+<p style="position:absolute;top:630pt;left:57pt;white-space:nowrap" class="ft41">lakehouse?</p>
+<p style="position:absolute;top:664pt;left:57pt;white-space:nowrap" class="ft42"><b>C.</b></p>
+<p style="position:absolute;top:664pt;left:67pt;white-space:nowrap" class="ft41">&#160;In&#160;a&#160;star&#160;schema&#160;for&#160;sales,&#160;is&#160;&#34;sale&#160;amount&#34;&#160;a&#160;fact&#160;or&#160;a&#160;dimension?&#160;Is&#160;&#34;store&#160;city&#34;?</p>
+<p style="position:absolute;top:691pt;left:47pt;white-space:nowrap" class="ft42"><b>Answers:</b></p>
+<p style="position:absolute;top:691pt;left:92pt;white-space:nowrap" class="ft41">&#160;</p>
+<p style="position:absolute;top:691pt;left:95pt;white-space:nowrap" class="ft42"><b>A&#160;-&#160;Lake</b></p>
+<p style="position:absolute;top:691pt;left:133pt;white-space:nowrap" class="ft41">&#160;(raw,&#160;organize&#160;later).&#160;</p>
+<p style="position:absolute;top:691pt;left:230pt;white-space:nowrap" class="ft42"><b>B&#160;-&#160;Warehouse</b></p>
+<p style="position:absolute;top:691pt;left:299pt;white-space:nowrap" class="ft41">&#160;(cleaned&#160;and&#160;structured&#160;for&#160;reporting).&#160;</p>
+<p style="position:absolute;top:691pt;left:473pt;white-space:nowrap" class="ft42"><b>C&#160;-&#160;Sale&#160;amount&#160;is</b></p>
+<p style="position:absolute;top:706pt;left:47pt;white-space:nowrap" class="ft42"><b>a&#160;fact</b></p>
+<p style="position:absolute;top:706pt;left:73pt;white-space:nowrap" class="ft41">&#160;(a&#160;number&#160;you&#160;measure&#160;and&#160;total);&#160;</p>
+<p style="position:absolute;top:706pt;left:232pt;white-space:nowrap" class="ft42"><b>store&#160;city&#160;is&#160;a&#160;dimension</b></p>
+<p style="position:absolute;top:706pt;left:348pt;white-space:nowrap" class="ft41">&#160;(context&#160;you&#160;group&#160;or&#160;filter&#160;by).&#160;A&#160;lakehouse</p>
+<p style="position:absolute;top:720pt;left:47pt;white-space:nowrap" class="ft41">would&#160;be&#160;the&#160;answer&#160;when&#160;a&#160;scenario&#160;stresses&#160;</p>
+<p style="position:absolute;top:720pt;left:257pt;white-space:nowrap" class="ft47"><i>one&#160;system&#160;doing&#160;both</i></p>
+<p style="position:absolute;top:720pt;left:357pt;white-space:nowrap" class="ft41">&#160;jobs.</p>
+<p style="position:absolute;top:752pt;left:545pt;white-space:nowrap" class="ft48">4&#160;/&#160;7</p>
+</div></section>
+<style type="text/css">
+<!--
+		.ft50{font-size:16pt;font-family:"Liberation Sans",Arial,sans-serif;color:#0e294a;}
+	.ft51{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft52{font-size:10pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft53{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#152538;}
+	.ft54{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft55{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#152538;}
+	.ft56{font-size:9pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft57{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft58{font-size:8pt;font-family:"Liberation Sans",Arial,sans-serif;color:#6a7990;}
+	.ft59{font-size:9pt;line-height:13pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft510{font-size:9pt;line-height:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft511{font-size:9pt;line-height:12pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+	.ft512{font-size:9pt;line-height:13pt;font-family:"Liberation Sans",Arial,sans-serif;color:#1a2332;}
+-->
+</style><section class="page bob"><div id="page5-div" style="position:relative;width:612pt;height:792pt;">
+<p style="position:absolute;top:36pt;left:47pt;white-space:nowrap" class="ft50"><b>Model&#160;families&#160;at&#160;a&#160;glance&#160;-&#160;strengths&#160;and&#160;limits</b></p>
+<p style="position:absolute;top:68pt;left:47pt;white-space:nowrap" class="ft51">Do&#160;not&#160;memorize&#160;internals.&#160;For&#160;each&#160;family,&#160;hold&#160;onto&#160;three&#160;things:&#160;</p>
+<p style="position:absolute;top:68pt;left:344pt;white-space:nowrap" class="ft52"><b>what&#160;it&#160;is&#160;good&#160;at,&#160;where&#160;it&#160;struggles,&#160;and&#160;a</b></p>
+<p style="position:absolute;top:82pt;left:47pt;white-space:nowrap" class="ft52"><b>task&#160;it&#160;fits.</b></p>
+<p style="position:absolute;top:82pt;left:96pt;white-space:nowrap" class="ft51">&#160;That&#160;is&#160;the&#160;level&#160;the&#160;quiz&#160;works&#160;at.</p>
+<p style="position:absolute;top:109pt;left:53pt;white-space:nowrap" class="ft53"><b>Family</b></p>
+<p style="position:absolute;top:109pt;left:151pt;white-space:nowrap" class="ft53"><b>Good&#160;at</b></p>
+<p style="position:absolute;top:109pt;left:291pt;white-space:nowrap" class="ft53"><b>Struggles&#160;when</b></p>
+<p style="position:absolute;top:109pt;left:431pt;white-space:nowrap" class="ft53"><b>Fits&#160;a&#160;task&#160;like</b></p>
+<p style="position:absolute;top:133pt;left:53pt;white-space:nowrap" class="ft54"><b>Linear&#160;regression</b></p>
+<p style="position:absolute;top:147pt;left:58pt;white-space:nowrap" class="ft55"><b>REGRESSION</b></p>
+<p style="position:absolute;top:133pt;left:151pt;white-space:nowrap" class="ft59">Simple,&#160;fast,&#160;and&#160;easy&#160;to<br/>explain:&#160;you&#160;can&#160;say&#160;how&#160;each<br/>feature&#160;pushes&#160;the&#160;prediction<br/>up&#160;or&#160;down.&#160;Great&#160;first<br/>baseline&#160;when&#160;the&#160;trend&#160;is<br/>roughly&#160;a&#160;straight&#160;line.</p>
+<p style="position:absolute;top:133pt;left:291pt;white-space:nowrap" class="ft510">The&#160;real&#160;pattern&#160;curves&#160;or<br/>interacts&#160;in&#160;complex&#160;ways.&#160;It<br/>will&#160;underfit&#160;tangled&#160;data.</p>
+<p style="position:absolute;top:133pt;left:431pt;white-space:nowrap" class="ft59">Predicting&#160;price&#160;or&#160;demand<br/>where&#160;a&#160;roughly&#160;linear&#160;trend&#160;is<br/>plausible&#160;-&#160;and&#160;where<br/>explaining&#160;the&#160;answer&#160;matters.</p>
+<p style="position:absolute;top:223pt;left:53pt;white-space:nowrap" class="ft54"><b>Logistic&#160;regression</b></p>
+<p style="position:absolute;top:237pt;left:58pt;white-space:nowrap" class="ft55"><b>CLASSIFICATION</b></p>
+<p style="position:absolute;top:223pt;left:151pt;white-space:nowrap" class="ft59">Simple,&#160;explainable&#160;yes/no&#160;(or<br/>few-category)&#160;predictions,&#160;with<br/>a&#160;probability&#160;attached.</p>
+<p style="position:absolute;top:223pt;left:291pt;white-space:nowrap" class="ft59">The&#160;boundary&#160;between<br/>categories&#160;is&#160;highly&#160;tangled&#160;or<br/>non-linear.</p>
+<p style="position:absolute;top:223pt;left:431pt;white-space:nowrap" class="ft59">Pass&#160;/&#160;fail,&#160;approve&#160;/&#160;decline,<br/>spam&#160;/&#160;not&#160;spam&#160;as&#160;a&#160;first,<br/>explainable&#160;model.</p>
+<p style="position:absolute;top:274pt;left:53pt;white-space:nowrap" class="ft54"><b>Decision&#160;tree</b></p>
+<p style="position:absolute;top:288pt;left:58pt;white-space:nowrap" class="ft55"><b>BOTH</b></p>
+<p style="position:absolute;top:274pt;left:151pt;white-space:nowrap" class="ft510">Easy&#160;to&#160;picture&#160;and&#160;explain&#160;as<br/>a&#160;flow&#160;of&#160;yes/no&#160;questions.<br/>Handles&#160;non-linear&#160;patterns<br/>and&#160;mixed&#160;data.</p>
+<p style="position:absolute;top:274pt;left:291pt;white-space:nowrap" class="ft510">A&#160;single&#160;deep&#160;tree&#160;overfits<br/>easily&#160;and&#160;can&#160;change&#160;a&#160;lot<br/>with&#160;small&#160;data&#160;changes&#160;(high<br/>variance).</p>
+<p style="position:absolute;top:274pt;left:431pt;white-space:nowrap" class="ft59">A&#160;small,&#160;explainable&#160;decision<br/>where&#160;showing&#160;the&#160;reasoning<br/>matters.</p>
+<p style="position:absolute;top:338pt;left:53pt;white-space:nowrap" class="ft54"><b>Random&#160;forest</b></p>
+<p style="position:absolute;top:353pt;left:58pt;white-space:nowrap" class="ft55"><b>BOTH</b></p>
+<p style="position:absolute;top:367pt;left:58pt;white-space:nowrap" class="ft57"><b>ENSEMBLE</b></p>
+<p style="position:absolute;top:338pt;left:151pt;white-space:nowrap" class="ft59">Many&#160;trees&#160;vote&#160;together,<br/>which&#160;averages&#160;out&#160;a&#160;single<br/>tree's&#160;quirks.&#160;Strong,&#160;reliable<br/>accuracy&#160;on&#160;tabular&#160;data&#160;with<br/>non-linear&#160;patterns;&#160;much&#160;less<br/>overfitting&#160;than&#160;one&#160;tree.</p>
+<p style="position:absolute;top:338pt;left:291pt;white-space:nowrap" class="ft59">Harder&#160;to&#160;explain&#160;than&#160;a&#160;single<br/>model,&#160;and&#160;slower&#160;/&#160;larger.<br/>Less&#160;natural&#160;for&#160;a&#160;simple<br/>straight-line&#160;trend.</p>
+<p style="position:absolute;top:338pt;left:431pt;white-space:nowrap" class="ft59">Classification&#160;or&#160;regression&#160;on<br/>messy,&#160;real-world&#160;tables&#160;where<br/>accuracy&#160;matters&#160;more&#160;than&#160;a<br/>simple&#160;explanation.</p>
+<p style="position:absolute;top:429pt;left:53pt;white-space:nowrap" class="ft54"><b>Boosting</b></p>
+<p style="position:absolute;top:443pt;left:58pt;white-space:nowrap" class="ft55"><b>BOTH</b></p>
+<p style="position:absolute;top:457pt;left:58pt;white-space:nowrap" class="ft57"><b>ENSEMBLE</b></p>
+<p style="position:absolute;top:429pt;left:151pt;white-space:nowrap" class="ft59">Trees&#160;are&#160;built&#160;one&#160;after<br/>another,&#160;each&#160;fixing&#160;the&#160;last<br/>one's&#160;mistakes.&#160;Often&#160;the<br/>highest&#160;accuracy&#160;on&#160;tabular<br/>data.</p>
+<p style="position:absolute;top:429pt;left:291pt;white-space:nowrap" class="ft510">Can&#160;overfit&#160;noisy&#160;data&#160;if<br/>pushed&#160;too&#160;far,&#160;needs&#160;more<br/>careful&#160;tuning,&#160;and&#160;is&#160;hard&#160;to<br/>explain.</p>
+<p style="position:absolute;top:429pt;left:431pt;white-space:nowrap" class="ft510">Squeezing&#160;the&#160;best&#160;accuracy<br/>out&#160;of&#160;a&#160;structured&#160;dataset,<br/>e.g.&#160;predicting&#160;risk&#160;or&#160;demand,<br/>when&#160;tuning&#160;time&#160;is&#160;available.</p>
+<p style="position:absolute;top:506pt;left:53pt;white-space:nowrap" class="ft511"><b>Support&#160;vector<br/>machine&#160;(SVM)</b></p>
+<p style="position:absolute;top:534pt;left:58pt;white-space:nowrap" class="ft55"><b>BOTH</b></p>
+<p style="position:absolute;top:506pt;left:151pt;white-space:nowrap" class="ft59">Draws&#160;the&#160;widest&#160;clear<br/>boundary&#160;between&#160;categories.<br/>Works&#160;well&#160;with&#160;many&#160;features,<br/>even&#160;when&#160;features<br/>outnumber&#160;examples,&#160;and&#160;can<br/>curve&#160;its&#160;boundary.</p>
+<p style="position:absolute;top:506pt;left:291pt;white-space:nowrap" class="ft510">Needs&#160;features&#160;on&#160;comparable<br/>scales,&#160;gets&#160;slow&#160;on&#160;very&#160;large<br/>datasets,&#160;and&#160;is&#160;hard&#160;to<br/>explain.&#160;Probabilities&#160;are&#160;not<br/>its&#160;natural&#160;output.</p>
+<p style="position:absolute;top:506pt;left:431pt;white-space:nowrap" class="ft59">Classification&#160;with&#160;lots&#160;of<br/>features,&#160;such&#160;as&#160;text&#160;or<br/>measurements,&#160;on&#160;a&#160;small-to-<br/>medium&#160;dataset.</p>
+<p style="position:absolute;top:596pt;left:53pt;white-space:nowrap" class="ft512"><b>k-Nearest<br/>Neighbors&#160;(k-NN)</b></p>
+<p style="position:absolute;top:624pt;left:58pt;white-space:nowrap" class="ft55"><b>BOTH</b></p>
+<p style="position:absolute;top:596pt;left:151pt;white-space:nowrap" class="ft59">Dead&#160;simple&#160;idea:&#160;predict&#160;from<br/>the&#160;most&#160;similar&#160;past&#160;cases.<br/>No&#160;training&#160;pattern&#160;to&#160;assume.</p>
+<p style="position:absolute;top:596pt;left:291pt;white-space:nowrap" class="ft510">Slow&#160;on&#160;large&#160;data,&#160;sensitive<br/>to&#160;feature&#160;scales,&#160;and<br/>struggles&#160;when&#160;there&#160;are&#160;many<br/>features.</p>
+<p style="position:absolute;top:596pt;left:431pt;white-space:nowrap" class="ft59">A&#160;small&#160;dataset&#160;where&#160;&#34;similar<br/>cases&#160;had&#160;similar&#160;outcomes&#34;&#160;is<br/>a&#160;sensible&#160;bet.</p>
+<p style="position:absolute;top:672pt;left:60pt;white-space:nowrap" class="ft52"><b>Ensembles&#160;in&#160;one&#160;line:</b></p>
+<p style="position:absolute;top:672pt;left:169pt;white-space:nowrap" class="ft51">&#160;an&#160;ensemble&#160;combines&#160;many&#160;models&#160;so&#160;their&#160;errors&#160;partly&#160;cancel.&#160;</p>
+<p style="position:absolute;top:672pt;left:465pt;white-space:nowrap" class="ft52"><b>Random&#160;forest</b></p>
+<p style="position:absolute;top:686pt;left:60pt;white-space:nowrap" class="ft51">builds&#160;its&#160;trees&#160;independently&#160;and&#160;averages&#160;them&#160;(mainly&#160;fights&#160;variance&#160;/&#160;overfitting).&#160;</p>
+<p style="position:absolute;top:686pt;left:440pt;white-space:nowrap" class="ft52"><b>Boosting</b></p>
+<p style="position:absolute;top:686pt;left:484pt;white-space:nowrap" class="ft51">&#160;builds&#160;them&#160;in</p>
+<p style="position:absolute;top:700pt;left:60pt;white-space:nowrap" class="ft51">sequence&#160;to&#160;fix&#160;mistakes&#160;(mainly&#160;fights&#160;bias&#160;/&#160;underfitting&#160;-&#160;but&#160;can&#160;overfit&#160;if&#160;overdone).</p>
+<p style="position:absolute;top:752pt;left:545pt;white-space:nowrap" class="ft58">5&#160;/&#160;7</p>
+</div></section>
+<section class="page"><p class="label">November 16 / 18 · Additional ML overview</p><h1>More families, same choice</h1><p>Keep the same task → data → strength → limitation reasoning. Recognize these families at overview level; you do not need their formulas.</p><table><tr><th>Family</th><th>Core idea and useful fit</th><th>Limit to remember</th></tr><tr><td>LDA / QDA</td><td>Generative classifiers describe the feature patterns within each class. LDA shares a spread assumption; QDA allows separate spreads.</td><td>QDA is more flexible and needs more examples; the assumed class shapes may fit poorly.</td></tr><tr><td>Naive Bayes</td><td>A simple generative classifier that treats inputs as independent within each class.</td><td>Strongly related inputs can count much the same evidence twice.</td></tr><tr><td>Ridge / lasso</td><td>Shrink feature effects to limit overfitting. Lasso can set some effects to zero.</td><td>Important effects can be shrunk too far; simpler does not automatically mean better.</td></tr><tr><td>Splines / GAMs</td><td>Use smooth curves; a GAM adds separate feature effects. Useful for readable, curved relationships.</td><td>Separate additive curves can miss effects that depend on other features.</td></tr><tr><td>Neural networks / CNNs</td><td>Learn flexible patterns. A CNN is designed for spatial patterns such as image regions.</td><td>Needs enough suitable data and is harder to explain. A CNN is not automatically best for a table.</td></tr><tr><td>Bagging / random forest</td><td>Bagging combines trees fitted to resampled data. A forest also varies candidate features at each split, making trees less alike.</td><td>Shared errors survive averaging; adding similar trees cannot fix every problem.</td></tr><tr><td>XGBoost / LightGBM / CatBoost</td><td>Boosting implementations with different practical designs: XGBoost supports sparse/missing inputs; LightGBM emphasizes efficient training; CatBoost handles categories with safeguards against outcome leakage.</td><td>All still need tuning and held-out checks; no name guarantees the best model for your data.</td></tr><tr><td>Stacking</td><td>A second model learns to combine other models' predictions.</td><td>Train it using predictions for cases excluded from the corresponding first-level fit, so training-fit answers do not leak in.</td></tr></table><h2>One last check</h2><p>A family is a starting bet about the data. A medium-sized table does not become an image problem because a neural network is fashionable. Choose a simple baseline, test credible alternatives, and state the cost or limitation you accept.</p></section>
+<section class="page practice"><p class="label">Short-answer practice · 1–5</p><h1>Reason in a sentence or two</h1><p class="small">Use the guide. Each question has at most two brief asks. Three ruled lines are provided.</p><div class="question"><h3>1. Storage and reliable versions · Oct 14 / 16</h3><p>A report needs only two columns from a wide sales table. Why might Parquet help? During a correction, why should readers use one committed file version rather than every file in the folder?</p><div class="write"></div></div><div class="question"><h3>2. Pipelines and retries · Oct 19</h3><p>A team loads raw purchases before cleaning them. Is this ETL or ELT? What should happen to the sales total when the exact same batch is retried?</p><div class="write"></div></div><div class="question"><h3>3. Changing sources and checks · Oct 19 / 21</h3><p>A vendor changes amounts from dollars to cents without changing the column name or numeric type. Why can the schema check pass while the report is wrong? Describe one check that would catch this unit error.</p><div class="write"></div></div><div class="question"><h3>4. Corrections and history · Oct 23</h3><p>A corrected file sits beside the original but is not in the table’s recorded snapshot. Should a table query count it automatically? Does reading yesterday’s version undo today’s correction?</p><div class="write"></div></div><div class="question"><h3>5. Performance and cost · Oct 26</h3><p>A query asks for one month but scans every month. Name one way to skip unnecessary work. Give one reason a cached result could be fast but unsuitable.</p><div class="write"></div></div></section>
+<section class="page practice"><p class="label">Short-answer practice · 6–10</p><h1>Reason in a sentence or two</h1><p class="small">Use the guide. Each question has at most two brief asks. Three ruled lines are provided.</p><div class="question"><h3>6. Geospatial work · Oct 28 / 30</h3><p>You merge a borough population table with borough boundaries. Why check unmatched keys as well as the output row count? Why can a map of total population tell a different story from population per square mile?</p><div class="write"></div></div><div class="question"><h3>7. Charts and claims · Nov 2</h3><p>You have daily attendance for one campus over two weeks. Choose a chart to show change over time. Can these data establish that attendance improved across all campuses?</p><div class="write"></div></div><div class="question"><h3>8. Streaming clocks · Nov 4 / 6</h3><p>A bus event happens at 12:00 and is processed at 12:03. Which time answers when it happened? Give one tradeoff of waiting longer for late events.</p><div class="write"></div></div><div class="question"><h3>9. Match the task · Nov 13 / 16 / 18</h3><p>Predict a used car’s selling price from its age, mileage, and condition. Is this regression or classification? Explain why linear regression could be a reasonable first model.</p><div class="write"></div></div><div class="question"><h3>10. Many features · Nov 16 / 18</h3><p>Flag incoming email as spam or not spam, from hundreds of word and sender features, on a modest dataset. Is this regression or classification? Explain why an SVM could be a reasonable first model.</p><div class="write"></div></div></section>
+<section class="page practice"><p class="label">Short-answer practice · 11–14</p><h1>Reason in a sentence or two</h1><p class="small">Use the guide. Each question has at most two brief asks. Three ruled lines are provided.</p><div class="question"><h3>11. Training versus new data · Nov 13 / 16 / 18</h3><p>A model scores 99% on its training data and 71% on new data. What is happening? What is one sensible next step?</p><div class="write"></div></div><div class="question"><h3>12. Messy tables · Nov 16 / 18</h3><p>Predict whether a loan applicant will default, from a large table with non-linear patterns. Accuracy matters more than a simple explanation. Name a model family you would try. Give one reason it fits.</p><div class="write"></div></div><div class="question"><h3>13. An explanation matters · Nov 16 / 18</h3><p>A manager wants to explain roughly how much each factor adds to next month’s predicted sales. The trend looks roughly linear. Name a family you would try. Give one reason it fits.</p><div class="write"></div></div><div class="question"><h3>14. Read the target · Nov 13 / 16 / 18</h3><p>Predict tomorrow’s high temperature. A colleague proposes logistic regression. Agree or disagree? Explain your reason.</p><div class="write"></div></div></section>
+<section class="page practice"><p class="label">Short-answer practice · 15–18</p><h1>Reason in a sentence or two</h1><p class="small">Use the guide. Each question has at most two brief asks. Three ruled lines are provided.</p><div class="question"><h3>15. Categories · ML reference</h3><p>A dataset lists neighborhoods as Downtown, Suburb, Rural and feeds them to a model as 1, 2, 3. What is wrong with this encoding? What could replace it?</p><div class="write"></div></div><div class="question"><h3>16. Preparation and leakage · Nov 13</h3><p>A KNN dataset has age and income features. Why should its scaler be fitted on training rows only? Why should an input recorded after the prediction time be excluded?</p><div class="write"></div></div><div class="question"><h3>17. Additional families · Nov 16 / 18</h3><p>You want readable, smooth curves relating features to a prediction. Name a suitable model family. Give one limitation of that choice.</p><div class="write"></div></div><div class="question"><h3>18. Ensembles and evaluation · Nov 13 / 16 / 18</h3><p>How does a random forest’s approach differ from boosting’s sequence? Why can an “always no outreach” baseline score high but be useless?</p><div class="write"></div></div></section>
+</main></html>

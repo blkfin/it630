@@ -1,0 +1,12 @@
+{
+ "source": "companions/worksheet.html",
+ "student_pdf": "practice.pdf",
+ "student_html": "practice.html",
+ "ships_as": "lNN/practice.pdf",
+ "pages": 12,
+ "page_size_pt": {
+  "w": 612,
+  "h": 792
+ },
+ "us_letter": true
+}
